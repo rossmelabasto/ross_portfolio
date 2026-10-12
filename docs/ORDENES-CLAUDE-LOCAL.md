@@ -33,18 +33,18 @@ paso irreversible o que toque producción:
    - Build: npm run build · Output: dist · Root: vacío · Variable NODE_VERSION=22
    Espera el primer deploy y revisa el log de build.
 
-5. Custom domains del proyecto: portfolio.rossmel.top y cv.rossmel.top (desde Pages, sin crear
+5. Custom domains del proyecto: portfolio.rossmel.com y cv.rossmel.com (desde Pages, sin crear
    CNAME a mano).
 
-6. Redirect Rule: rossmel.top y www.rossmel.top → 301 a https://portfolio.rossmel.top (conservar
+6. Redirect Rule: rossmel.com y www.rossmel.com → 301 a https://portfolio.rossmel.com (conservar
    la ruta). Si el apex no tiene un registro DNS proxied, crea el mínimo necesario para que la
    regla aplique y explícame qué creaste.
 
 7. Verifica y repórtame:
-   curl -sI https://portfolio.rossmel.top           → 200
-   curl -s  https://cv.rossmel.top | grep -o "<title>[^<]*"   → debe ser el CV
-   curl -sI https://cv.rossmel.top/cv/Rossmel-Abasto-CV-ES.pdf → 200, application/pdf
-   curl -sI https://rossmel.top                     → 301 a portfolio
+   curl -sI https://portfolio.rossmel.com           → 200
+   curl -s  https://cv.rossmel.com | grep -o "<title>[^<]*"   → debe ser el CV
+   curl -sI https://cv.rossmel.com/cv/Rossmel-Abasto-CV-ES.pdf → 200, application/pdf
+   curl -sI https://rossmel.com                     → 301 a portfolio
    Y abre una PR de prueba o push a otra rama para confirmar que crea una URL de vista previa.
 
 8. Capturas para el portafolio (no las subas al repo todavía, déjalas en

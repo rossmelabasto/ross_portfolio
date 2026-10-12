@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import { readdirSync, readFileSync } from 'node:fs';
 import remarkMarks from './src/lib/remark-marks.ts';
 
-const SITE = 'https://portfolio.rossmel.top';
+const SITE = 'https://portfolio.rossmel.com';
 
 /** Fecha de cada artículo (updated ?? date) para el <lastmod> del sitemap. */
 function blogDates() {

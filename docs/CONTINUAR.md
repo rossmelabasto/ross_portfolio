@@ -12,8 +12,8 @@ Orden de lectura sugerido: **este archivo → `CLAUDE.md` → `README.md`** (ref
 
 | | |
 |---|---|
-| Portafolio | https://portfolio.rossmel.top (ES) · `/en/` (EN) |
-| CV | https://cv.rossmel.top (= `/cv/`) · `/en/cv/` · PDF en `/cv/Rossmel-Abasto-CV-{ES,EN}.pdf` |
+| Portafolio | https://portfolio.rossmel.com (ES) · `/en/` (EN) |
+| CV | https://cv.rossmel.com (= `/cv/`) · `/en/cv/` · PDF en `/cv/Rossmel-Abasto-CV-{ES,EN}.pdf` |
 | Blog | `/blog/` · `/en/blog/` (11 artículos, cada uno en ES y EN) |
 | Repo | `rossmelabasto/ross_portfolio` (**público**) · rama `main` = producción |
 | Hosting | Cloudflare Pages, proyecto `rossmel-portfolio`; cada push a `main` publica solo |

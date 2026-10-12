@@ -3,11 +3,11 @@
  *
  * Variables en Cloudflare Pages (Settings → Variables and Secrets, como *secret*):
  *   TURNSTILE_SECRET_KEY  clave secreta del widget Turnstile
- *   RESEND_API_KEY        clave de Resend (el dominio rossmel.top debe estar verificado en Resend)
+ *   RESEND_API_KEY        clave de Resend (el dominio rossmel.com debe estar verificado en Resend)
  *   TELEGRAM_BOT_TOKEN    (opcional) token del bot que avisa de cada mensaje
  *   TELEGRAM_CHAT_ID      (opcional) chat al que el bot manda el aviso
  *   CONTACT_TO            (opcional) correo destino; por defecto abastorossmel@gmail.com
- *   CONTACT_FROM          (opcional) remitente; por defecto "Portafolio <contacto@rossmel.top>"
+ *   CONTACT_FROM          (opcional) remitente; por defecto "Portafolio <contacto@rossmel.com>"
  *
  * El mensaje sale por correo y, si está configurado, por Telegram. Basta con que llegue por uno.
  * Responde JSON { ok: true } o { ok: false, error: 'codigo' } con el status adecuado.
@@ -42,7 +42,7 @@ async function sendEmail(env, m) {
     method: 'POST',
     headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'content-type': 'application/json' },
     body: JSON.stringify({
-      from: env.CONTACT_FROM || 'Portafolio <contacto@rossmel.top>',
+      from: env.CONTACT_FROM || 'Portafolio <contacto@rossmel.com>',
       to: [env.CONTACT_TO || 'abastorossmel@gmail.com'],
       reply_to: m.email,
       subject: m.context ? `Blog: comentario de ${m.name} sobre "${m.context}"` : `Portafolio: mensaje de ${m.name}`,

@@ -1,14 +1,14 @@
 <!-- README del perfil de GitHub → repo público rossmelabasto/rossmelabasto.
      Generado desde ross_portfolio/docs/github-profile (ver INSTRUCCIONES.md). -->
 
-<a href="https://portfolio.rossmel.top">
+<a href="https://portfolio.rossmel.com">
   <img src="./assets/header.svg" alt="Rossmel Abasto — Frontend → Fullstack · IA · Linux" width="100%" />
 </a>
 
 <p align="center">
-  <a href="https://portfolio.rossmel.top"><img src="https://img.shields.io/badge/portfolio-rossmel.top-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Portafolio" /></a>
-  <a href="https://cv.rossmel.top"><img src="https://img.shields.io/badge/cv-descargar-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="CV" /></a>
-  <a href="https://portfolio.rossmel.top/blog/"><img src="https://img.shields.io/badge/blog-leer-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Blog" /></a>
+  <a href="https://portfolio.rossmel.com"><img src="https://img.shields.io/badge/portfolio-rossmel.com-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Portafolio" /></a>
+  <a href="https://cv.rossmel.com"><img src="https://img.shields.io/badge/cv-descargar-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="CV" /></a>
+  <a href="https://portfolio.rossmel.com/blog/"><img src="https://img.shields.io/badge/blog-leer-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Blog" /></a>
   <a href="https://www.linkedin.com/in/rossmel/"><img src="https://img.shields.io/badge/linkedin-in%2Frossmel-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="LinkedIn" /></a>
 </p>
 
@@ -41,12 +41,12 @@ const rossmel = {
 | **CarX** · GeekLabs | SaaS multi-tenant para talleres mecánicos; principal dev frontend (944 de 1.131 commits). |
 | **rOS** · personal | Mi flavor de Arch en camino a distro: niri + DankMaterialShell, Limine, actualizaciones con snapshots. |
 
-<sub>Varios repos son privados (clientes o universidad): los casos de estudio completos están en el <a href="https://portfolio.rossmel.top/#work">portafolio</a>.</sub>
+<sub>Varios repos son privados (clientes o universidad): los casos de estudio completos están en el <a href="https://portfolio.rossmel.com/#work">portafolio</a>.</sub>
 
 ### ✍️ Últimos artículos
 
 <!-- BLOG-POST-LIST:START -->
-- [Cómo evité que un LLM invente artículos del Código Civil](https://portfolio.rossmel.top/blog/llm-sin-citas-inventadas/)
+- [Cómo evité que un LLM invente artículos del Código Civil](https://portfolio.rossmel.com/blog/llm-sin-citas-inventadas/)
 <!-- BLOG-POST-LIST:END -->
 
 ### 🐍 Actividad
