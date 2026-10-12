@@ -134,7 +134,7 @@ Reglas:
 
 **Escribir un artículo** → versión ES en `src/content/blog/<slug>.md` y versión EN en
 `src/content/blog/en/<slug-en>.md`.
-- Frontmatter: `title`, `description`, `date`, `tags`, `lang`, `translationOf: '<slug ES>'` (solo en el EN), `project: '<slug>'` opcional y `pinned` opcional.
+- Frontmatter: `title`, `description`, `date`, `tags`, `lang`, `translationOf: '<slug ES>'` (solo en el EN), `project: '<slug>'` opcional. Ya no hay artículos fijados: el orden es siempre por fecha.
 - Estructura: problema real → decisión clave → código simplificado → "Lo que aprendí".
 - Reusar las etiquetas existentes.
 
