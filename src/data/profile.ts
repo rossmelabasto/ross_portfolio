@@ -396,7 +396,7 @@ export const projects: Project[] = [
       en: ["An AI-generated prototype is a starting point, not a product: the hard part came afterwards (performance, permissions, versioning).", "Large PDFs punish memory: I learned to render only what’s visible and release resources on time.", "Building for a real user (the head of the program) forces you to prioritize what actually gets used."],
     },
     stack: ['Next.js 16', 'Firebase', 'Groq', 'pdf.js', 'shadcn/ui', 'Tailwind', 'Vercel'],
-    links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_sgpg' }],
+    confidential: true, // repo privado desde 2026-10-11 (lo usa la universidad con datos reales)
     doodle: 'gradcap',
     accent: '#ffb23d',
     featured: true,

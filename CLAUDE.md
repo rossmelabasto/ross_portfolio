@@ -104,6 +104,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.29: ficha `transcribe` (CLI open source de transcripción local con faster-whisper, repo `ross_transcribe`, MIT): dibujo `mic`, acento `#cba6f7` (Catppuccin Mocha, el de la herramienta), `featured`/`cv` en false, sin `live`. Artículo `transcribe-transcripcion-local-en-la-terminal` / `en/transcribe-local-transcription-in-the-terminal` con los GIF de la demo en `public/blog/transcribe/` (audios de dominio público). Sin datos familiares: el origen se cuenta como "una nota de voz".
 - v3.29: sin artículos fijados: se quitó `pinned` del esquema, de `blog.ts` y de "Programar antes y después de la IA" (ES/EN); el blog, la portada y el RSS van siempre por fecha.
 - v3.30: artículo `mangas-13-gb-a-2-7-gb` / `en/manga-13-gb-to-2-7-gb` con la comparación real de formatos (sale de `herramientas/aligerar_cbz.py` del repo kavita-ros y de la medición de esa sesión). Sin nombres de series. El motivo de WebP sobre AVIF no quedó escrito en la sesión original: el artículo da los argumentos generales (soporte, decodificación, ~700 MB de diferencia); Rossmel puede corregirlo.
+- v3.31: SGPG es repo privado desde 2026-10-11: ficha con `confidential: true`, sin `links`; README del perfil de GitHub (y su copia en `docs/github-profile/`) sin enlace.
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.
