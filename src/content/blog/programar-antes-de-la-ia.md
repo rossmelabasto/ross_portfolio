@@ -4,7 +4,6 @@ description: 'Aprendí a la vieja escuela y recién en mi último año en WANT m
 date: 2026-09-16
 tags: ['ia', 'carrera']
 lang: 'es'
-pinned: true
 ---
 
 Hoy cualquiera puede pedirle a un modelo "hazme una app de tareas" y tener algo funcionando en diez minutos. Es increíble, y lo uso todos los días. Pero mi forma de usar la IA tiene mucho que ver con cómo aprendí a programar antes de que existiera.

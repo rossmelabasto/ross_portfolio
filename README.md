@@ -336,7 +336,7 @@ canales), `503 not_configured` (falta Turnstile o no hay ningún canal).
 - Frontmatter: `title`, `description` (1–2 frases, sale en Google y al compartir), `date`,
   `tags`, `lang` (`es`/`en`, por defecto `es`), `draft: true` para no publicar,
   `project: '<slug>'` para enlazarlo con su caso de estudio (el caso lista sus artículos y el
-  artículo muestra una tarjeta al proyecto) y `pinned: true` para que salga primero.
+  artículo muestra una tarjeta al proyecto). El orden es siempre por fecha (ya no hay artículos fijados).
 - Etiquetas: reusar las existentes (`ia`, `llm`, `python`, `frontend`, `react`, `linux`,
   `rendimiento`…). Las que tienen un solo artículo se agrupan tras el botón "+N más".
 - Portada con **buscador** (texto completo: el índice `search.json` se descarga solo al
@@ -536,6 +536,7 @@ Ramas:
 | 2026-09 | v3.13: botón "volver arriba" con anillo de progreso y más dibujos a mano (subrayados/círculos en hero, experiencia, proyectos, historia y los 22 artículos). Pedido de Rossmel. |
 | 2026-09 | v3.15: nuevo titular del hero ("Construyo interfaces rápidas, cuidadas y listas para producción. Programo desde 2020…"), íconos en los botones CV y ES/EN (nav y barra del CV) y el botón "volver arriba" sube al llegar al footer para no tapar sus enlaces. Pedido de Rossmel. |
 | 2026-09 | Traspaso a Claude local: guía `docs/CONTINUAR.md` y `npm run verify` (chequeo automático tras el build). |
+| 2026-10 | Blog: se quitó el "fijado" (`pinned`). "Programar antes y después de la IA" salía siempre primero aunque es de septiembre, y el orden "Más recientes" no era real. Ahora todo va por fecha (blog, portada y RSS). Pedido de Rossmel. |
 | 2026-10 | Ficha nueva **transcribe** (CLI open source de transcripción local: selector interactivo, marcas de tiempo, subtítulos .srt, ES/EN; repo `ross_transcribe`, MIT), con dibujo `mic` y acento `#cba6f7`, no destacada; artículo "transcribe: de una nota de voz a una herramienta open source para la terminal" (ES/EN) con GIF de la demo en `public/blog/transcribe/`. Pedido de Rossmel. |
 | 2026-10 | Ficha nueva **Manga** (manga.rossmel.com, lector de mangas con Kavita + marca rOS, subida automática y optimización medida 13 GB → 2,7 GB), con dibujo `manga` (libro abierto), acento `#ff7eb3` y tarjeta en "En vivo" (4 en fila desde `xl`). Homelab: 10 servicios públicos (antes decía 12). Pedido de Rossmel. |
 | 2026-10 | Celular: Experiencia, Stack y Cómo trabajo usan la misma lista fija que Proyectos (Experiencia muestra cargo, resumen y tecnologías, con enlace al CV para el detalle); otros proyectos, En vivo y Blog crecen al pasar por el centro (`data-focus-item`); menos espacio vertical entre secciones. La home pasó de ~21 a ~14,8 pantallas de celular. Escritorio sin cambios. Pedido de Rossmel. |

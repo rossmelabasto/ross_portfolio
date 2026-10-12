@@ -5,8 +5,7 @@ import { stripMarks } from './sketches';
 
 export type Post = CollectionEntry<'blog'>;
 
-const byPinnedThenDate = (a: Post, b: Post) =>
-  Number(b.data.pinned) - Number(a.data.pinned) ||
+const byDate = (a: Post, b: Post) =>
   b.data.date.getTime() - a.data.date.getTime() ||
   a.data.title.localeCompare(b.data.title);
 
@@ -14,9 +13,9 @@ async function allPosts(): Promise<Post[]> {
   return getCollection('blog', ({ data }) => !data.draft);
 }
 
-/** Artículos publicados de un idioma: fijados primero y luego del más nuevo al más viejo. */
+/** Artículos publicados de un idioma, del más nuevo al más viejo. */
 export async function getPosts(lang: Lang = 'es'): Promise<Post[]> {
-  return (await allPosts()).filter((p) => p.data.lang === lang).sort(byPinnedThenDate);
+  return (await allPosts()).filter((p) => p.data.lang === lang).sort(byDate);
 }
 
 /** Slug de la URL: los artículos EN viven en src/content/blog/en/ (id "en/<slug>"). */
