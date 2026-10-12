@@ -89,7 +89,7 @@ Notebook solves a problem every student has, and it can run on an old computer o
 - **A security pass**: I fixed a way to reach another user's data, added CSRF protection and a strict CSP, sessions are stored only as hashes, uploads are validated by their real file signature and served sandboxed, and the server only listens on localhost.
 - **Documentation** to install it in a few commands, in English and Spanish.
 
-I released it under the **MIT** license on October 7, 2026. When you are signed out, [notebook.rossmel.top](https://notebook.rossmel.top) shows a page with what it does, and the code is at [github.com/rossmelabasto/ross_notebook](https://github.com/rossmelabasto/ross_notebook).
+I released it under the **MIT** license on October 7, 2026. When you are signed out, [notebook.rossmel.com](https://notebook.rossmel.com) shows a page with what it does, and the code is at [github.com/rossmelabasto/ross_notebook](https://github.com/rossmelabasto/ross_notebook).
 
 ## What I'm taking away
 

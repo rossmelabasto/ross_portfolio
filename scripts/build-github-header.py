@@ -43,7 +43,7 @@ def font_b64(path, text, variable_wght=None):
     buf = io.BytesIO(); f.flavor = 'woff2'; f.save(buf)
     return base64.b64encode(buf.getvalue()).decode()
 
-mono_text = PROMPT + ''.join(t for _, t in LINES) + ROLE + '[] ok✓█portfolio.rossmel.top'
+mono_text = PROMPT + ''.join(t for _, t in LINES) + ROLE + '[] ok✓█portfolio.rossmel.com'
 sg = font_b64(SG, ''.join(NAME) + ROLE, variable_wght=700)
 jb = font_b64(JB, mono_text)
 

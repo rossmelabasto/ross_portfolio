@@ -29,8 +29,8 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/rossmel/',
     gitlab: 'https://gitlab.com/RossmelAbasto',
   },
-  portfolioUrl: 'https://portfolio.rossmel.top',
-  cvUrl: 'https://cv.rossmel.top',
+  portfolioUrl: 'https://portfolio.rossmel.com',
+  cvUrl: 'https://cv.rossmel.com',
 
   photoAlt: { es: 'Foto de Rossmel Abasto', en: 'Photo of Rossmel Abasto' } as L,
 
@@ -265,7 +265,7 @@ export type Project = {
   learned: Record<Lang, string[]>; // "Lo que aprendí"
   stack: string[];
   links?: { label: string; href: string }[];
-  live?: string; // host público (p. ej. 'rubik.rossmel.top'): botón "Ver en vivo" y sección En vivo
+  live?: string; // host público (p. ej. 'rubik.rossmel.com'): botón "Ver en vivo" y sección En vivo
   accent: string; // color del caso de estudio
   /** dibujo a mano que lo representa (src/data/sketches.ts) */
   doodle?: SketchName;
@@ -530,7 +530,7 @@ export const projects: Project[] = [
     },
     stack: ['Node.js', 'Express', 'SQLite', 'sqlite-vec', 'FTS5', 'RAG', 'Groq', 'Gemini', 'SSE', 'PWA', 'JavaScript'],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_notebook' }],
-    live: 'notebook.rossmel.top',
+    live: 'notebook.rossmel.com',
     doodle: 'notebook',
     accent: '#ffd166',
     featured: true,
@@ -579,7 +579,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ['JavaScript', 'cubing.js', 'WebAssembly', 'HTML', 'CSS'],
-    live: 'rubik.rossmel.top',
+    live: 'rubik.rossmel.com',
     doodle: 'cube',
     accent: '#ff5f5f',
     featured: false,
@@ -628,7 +628,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Jellyfin', 'Docker', 'Cloudflare Tunnel', 'Linux', 'REST API'],
-    live: 'selflix.rossmel.top',
+    live: 'selflix.rossmel.com',
     doodle: 'tv',
     accent: '#a78bfa',
     featured: false,
@@ -677,7 +677,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Kavita', 'Docker', 'Python', 'rsync', 'systemd', 'CSS', 'PWA', 'Cloudflare Tunnel', 'Linux'],
-    live: 'manga.rossmel.top',
+    live: 'manga.rossmel.com',
     doodle: 'manga',
     accent: '#ff7eb3',
     featured: false,
@@ -1099,11 +1099,11 @@ export const story: { heading: L; doodles: SketchName[]; body: Record<Lang, stri
     body: {
       es: [
         'Fuera de la pantalla, mis pasatiempos terminaron pareciéndose a cómo trabajo: ((obsesionarme)) con un problema, probar, fallar, mejorar y, si hace falta, rearmar todo desde cero. El mejor ejemplo son los cubos de Rubik.',
-        'Empecé a los 12 o 13 años con los tutoriales del canal de ((Cuby)) en YouTube, y hoy tengo entre 20 y 30 cubos distintos. Sigo practicando ==velocidad== en [rubik.rossmel.top](https://rubik.rossmel.top), un timer que construí yo mismo: algoritmos, patrones y resolver algo pieza por pieza, igual que al programar.',
+        'Empecé a los 12 o 13 años con los tutoriales del canal de ((Cuby)) en YouTube, y hoy tengo entre 20 y 30 cubos distintos. Sigo practicando ==velocidad== en [rubik.rossmel.com](https://rubik.rossmel.com), un timer que construí yo mismo: algoritmos, patrones y resolver algo pieza por pieza, igual que al programar.',
       ],
       en: [
         'Away from the screen, my hobbies ended up looking a lot like how I work: ((obsessing)) over a problem, trying, failing, improving and, if needed, tearing everything down to rebuild it. Rubik\'s cubes are the best example.',
-        'I started at 12 or 13 with the tutorials from ((Cuby))\'s YouTube channel, and today I own between 20 and 30 different cubes. I still practice ==speed-solving== on [rubik.rossmel.top](https://rubik.rossmel.top), a timer I built myself: algorithms, patterns and solving something piece by piece, just like programming.',
+        'I started at 12 or 13 with the tutorials from ((Cuby))\'s YouTube channel, and today I own between 20 and 30 different cubes. I still practice ==speed-solving== on [rubik.rossmel.com](https://rubik.rossmel.com), a timer I built myself: algorithms, patterns and solving something piece by piece, just like programming.',
       ],
     },
   },

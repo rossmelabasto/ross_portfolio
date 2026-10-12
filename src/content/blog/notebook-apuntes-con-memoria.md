@@ -86,7 +86,7 @@ Notebook resuelve un problema que tiene cualquier estudiante, y se puede instala
 - **Una revisión de seguridad**: corregí un acceso indebido a datos de otro usuario, agregué protección CSRF y una CSP estricta, las sesiones se guardan solo como hash, los archivos subidos se validan por su firma real y se sirven aislados, y el servidor solo escucha en localhost.
 - **Documentación** para instalarlo en pocos comandos, en inglés y en español.
 
-Lo publiqué con licencia **MIT** el 7 de octubre de 2026. Cuando no tienes sesión, [notebook.rossmel.top](https://notebook.rossmel.top) muestra una página con lo que hace, y el código está en [github.com/rossmelabasto/ross_notebook](https://github.com/rossmelabasto/ross_notebook).
+Lo publiqué con licencia **MIT** el 7 de octubre de 2026. Cuando no tienes sesión, [notebook.rossmel.com](https://notebook.rossmel.com) muestra una página con lo que hace, y el código está en [github.com/rossmelabasto/ross_notebook](https://github.com/rossmelabasto/ross_notebook).
 
 ## Lo que me llevo
 

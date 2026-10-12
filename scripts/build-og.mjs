@@ -41,7 +41,7 @@ h1 { font-size: 150px; line-height: .88; letter-spacing: -.045em; font-weight: 7
 </style></head><body><div class="glow"></div>${readFileSync('src/assets/logo.svg', 'utf8').replace('<svg ', '<svg class="logo" ')}<div class="wrap">
 <div class="k"><span class="dot"></span>Portfolio · Cochabamba, Bolivia</div>
 <h1>Rossmel<br>Abasto</h1>
-<div class="row"><div class="role">Frontend <b>→</b> Fullstack · IA</div><div class="url">portfolio.rossmel.top</div></div>
+<div class="row"><div class="role">Frontend <b>→</b> Fullstack · IA</div><div class="url">portfolio.rossmel.com</div></div>
 </div></body></html>`;
 
 const browser = await chromium.launch({ executablePath: findChromium() });

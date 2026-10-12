@@ -11,8 +11,8 @@ recomienda, con los textos EN de abajo).
 
 ## Ubicación y sitio web
 - Ubicación: Cochabamba, Bolivia · Tipo de trabajo: remoto
-- Sitio web (Información de contacto): https://portfolio.rossmel.top — etiqueta "Portafolio"
-- Enlace personalizado bajo el nombre ("Custom button" o "Provide services"): Portafolio → https://portfolio.rossmel.top
+- Sitio web (Información de contacto): https://portfolio.rossmel.com — etiqueta "Portafolio"
+- Enlace personalizado bajo el nombre ("Custom button" o "Provide services"): Portafolio → https://portfolio.rossmel.com
 
 ## Acerca de
 **ES:**
@@ -24,7 +24,7 @@ Me importan el detalle, el rendimiento y que el software lo use gente real: desd
 
 Fuera del trabajo: Linux (mi propio flavor de Arch, rOS) y un homelab con una docena de servicios.
 
-🌐 portfolio.rossmel.top · ✍️ portfolio.rossmel.top/blog
+🌐 portfolio.rossmel.com · ✍️ portfolio.rossmel.com/blog
 
 **EN:**
 Frontend Developer with 3+ years of experience at WANT building multi-tenant SaaS, mobile apps and websites with React, Next.js, React Native and TypeScript (~1,800 commits across client products in Bolivia and the US).
@@ -35,12 +35,12 @@ I care about detail, performance and software that real people use: from a SaaS 
 
 Outside work: Linux (my own Arch flavor, rOS) and a homelab running a dozen services.
 
-🌐 portfolio.rossmel.top · ✍️ portfolio.rossmel.top/blog
+🌐 portfolio.rossmel.com · ✍️ portfolio.rossmel.com/blog
 
 ## Destacados (Featured)
-1. Enlace: Portafolio — https://portfolio.rossmel.top
-2. Enlace: Artículo — https://portfolio.rossmel.top/blog/llm-sin-citas-inventadas/
-3. Enlace: CV — https://cv.rossmel.top
+1. Enlace: Portafolio — https://portfolio.rossmel.com
+2. Enlace: Artículo — https://portfolio.rossmel.com/blog/llm-sin-citas-inventadas/
+3. Enlace: CV — https://cv.rossmel.com
 
 ## Experiencia
 ### Desarrollador Fullstack — Independiente · Freelance
