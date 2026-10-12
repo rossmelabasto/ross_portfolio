@@ -95,7 +95,7 @@ const extra = tags.filter(([, n]) => n < 2).length;
     let tag = params.get('tag') ?? '';
     let sort = params.get('sort') ?? 'recent';
     if (sortSel) sortSel.value = [...sortSel.options].some((o) => o.value === sort) ? sort : (sort = 'recent');
-    // Orden elegido. "recent" respeta el orden del servidor (fijados primero, luego del más nuevo al más viejo)
+    // Orden elegido. "recent" respeta el orden del servidor (del más nuevo al más viejo)
     const cmp = (a: HTMLElement, b: HTMLElement, ao: number, bo: number) => {
       const d = (x: HTMLElement) => Number(x.dataset.date);
       switch (sort) {

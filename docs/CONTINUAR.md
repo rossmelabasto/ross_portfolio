@@ -12,8 +12,8 @@ Orden de lectura sugerido: **este archivo → `CLAUDE.md` → `README.md`** (ref
 
 | | |
 |---|---|
-| Portafolio | https://portfolio.rossmel.top (ES) · `/en/` (EN) |
-| CV | https://cv.rossmel.top (= `/cv/`) · `/en/cv/` · PDF en `/cv/Rossmel-Abasto-CV-{ES,EN}.pdf` |
+| Portafolio | https://portfolio.rossmel.com (ES) · `/en/` (EN) |
+| CV | https://cv.rossmel.com (= `/cv/`) · `/en/cv/` · PDF en `/cv/Rossmel-Abasto-CV-{ES,EN}.pdf` |
 | Blog | `/blog/` · `/en/blog/` (11 artículos, cada uno en ES y EN) |
 | Repo | `rossmelabasto/ross_portfolio` (**público**) · rama `main` = producción |
 | Hosting | Cloudflare Pages, proyecto `rossmel-portfolio`; cada push a `main` publica solo |
@@ -134,7 +134,7 @@ Reglas:
 
 **Escribir un artículo** → versión ES en `src/content/blog/<slug>.md` y versión EN en
 `src/content/blog/en/<slug-en>.md`.
-- Frontmatter: `title`, `description`, `date`, `tags`, `lang`, `translationOf: '<slug ES>'` (solo en el EN), `project: '<slug>'` opcional y `pinned` opcional.
+- Frontmatter: `title`, `description`, `date`, `tags`, `lang`, `translationOf: '<slug ES>'` (solo en el EN), `project: '<slug>'` opcional. Ya no hay artículos fijados: el orden es siempre por fecha.
 - Estructura: problema real → decisión clave → código simplificado → "Lo que aprendí".
 - Reusar las etiquetas existentes.
 

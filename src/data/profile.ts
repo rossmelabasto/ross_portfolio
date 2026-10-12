@@ -29,8 +29,8 @@ export const profile = {
     linkedin: 'https://www.linkedin.com/in/rossmel/',
     gitlab: 'https://gitlab.com/RossmelAbasto',
   },
-  portfolioUrl: 'https://portfolio.rossmel.top',
-  cvUrl: 'https://cv.rossmel.top',
+  portfolioUrl: 'https://portfolio.rossmel.com',
+  cvUrl: 'https://cv.rossmel.com',
 
   photoAlt: { es: 'Foto de Rossmel Abasto', en: 'Photo of Rossmel Abasto' } as L,
 
@@ -265,7 +265,7 @@ export type Project = {
   learned: Record<Lang, string[]>; // "Lo que aprendí"
   stack: string[];
   links?: { label: string; href: string }[];
-  live?: string; // host público (p. ej. 'rubik.rossmel.top'): botón "Ver en vivo" y sección En vivo
+  live?: string; // host público (p. ej. 'rubik.rossmel.com'): botón "Ver en vivo" y sección En vivo
   accent: string; // color del caso de estudio
   /** dibujo a mano que lo representa (src/data/sketches.ts) */
   doodle?: SketchName;
@@ -530,7 +530,7 @@ export const projects: Project[] = [
     },
     stack: ['Node.js', 'Express', 'SQLite', 'sqlite-vec', 'FTS5', 'RAG', 'Groq', 'Gemini', 'SSE', 'PWA', 'JavaScript'],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_notebook' }],
-    live: 'notebook.rossmel.top',
+    live: 'notebook.rossmel.com',
     doodle: 'notebook',
     accent: '#ffd166',
     featured: true,
@@ -579,7 +579,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ['JavaScript', 'cubing.js', 'WebAssembly', 'HTML', 'CSS'],
-    live: 'rubik.rossmel.top',
+    live: 'rubik.rossmel.com',
     doodle: 'cube',
     accent: '#ff5f5f',
     featured: false,
@@ -628,7 +628,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Jellyfin', 'Docker', 'Cloudflare Tunnel', 'Linux', 'REST API'],
-    live: 'selflix.rossmel.top',
+    live: 'selflix.rossmel.com',
     doodle: 'tv',
     accent: '#a78bfa',
     featured: false,
@@ -677,9 +677,61 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Kavita', 'Docker', 'Python', 'rsync', 'systemd', 'CSS', 'PWA', 'Cloudflare Tunnel', 'Linux'],
-    live: 'manga.rossmel.top',
+    live: 'manga.rossmel.com',
     doodle: 'manga',
     accent: '#ff7eb3',
+    featured: false,
+    cv: false,
+  },
+  {
+    slug: 'transcribe',
+    name: 'transcribe',
+    year: '2026',
+    kind: { es: 'Proyecto personal · Open source', en: 'Personal project · Open source' },
+    tagline: {
+      es: 'Transcripción de audio y video en la terminal, local y sin internet: selector interactivo, marcas de tiempo y subtítulos. Open source.',
+      en: 'Audio and video transcription in the terminal, local and offline: interactive picker, timestamps and subtitles. Open source.',
+    },
+    problem: {
+      es: 'Pasar una nota de voz o una clase grabada a texto casi siempre significa subirla a un servicio en la nube. transcribe lo hace en la propia computadora: eliges los archivos en un menú (o los pasas como argumentos) y sale el texto, con marcas de tiempo o subtítulos .srt si los quieres. Nada sale de la máquina.',
+      en: 'Turning a voice note or a recorded class into text usually means uploading it to a cloud service. transcribe does it on your own computer: pick the files from a menu (or pass them as arguments) and get the text, with timestamps or .srt subtitles if you want them. Nothing leaves the machine.',
+    },
+    role: {
+      es: 'Idea, diseño de la interfaz, desarrollo y publicación como open source, con Claude Code como pareja de programación.',
+      en: 'Idea, interface design, development and open-source release, with Claude Code as a pair programmer.',
+    },
+    highlights: {
+      es: [
+        'Selector interactivo: tus Descargas de lo más nuevo a lo más viejo, con duración y antigüedad; filtro escribiendo, selección múltiple y búsqueda en toda la máquina (carpeta personal + discos montados) con fd.',
+        'Rápido sin GPU: el modelo small de Whisper transcribe ==unas 10 veces más rápido que el tiempo real== en la CPU de una laptop; una nota de voz de 30 s tarda ~3 s.',
+        'La GPU solo si de verdad funciona: antes de usarla comprueba que carguen las librerías de CUDA y, si falla a mitad de camino, sigue en la CPU sin romperse.',
+        'Lee cualquier formato con ffmpeg (notas de voz, mp3, el audio de un video) y así evita un choque de versiones entre faster-whisper y PyAV.',
+        'Interfaz en español o inglés según el sistema, salida en pantalla, .txt y .srt, 29 tests con un modelo falso y CI en GitHub Actions con tres versiones de Python.',
+      ],
+      en: [
+        'Interactive picker: your Downloads newest first, with duration and age; type to filter, multi-select and search the whole machine (home folder + mounted drives) with fd.',
+        'Fast without a GPU: Whisper\'s small model transcribes ==about 10× faster than real time== on a laptop CPU; a 30-second voice note takes ~3 s.',
+        'GPU only when it really works: before using it, it checks that the CUDA libraries load, and if it fails mid-way it carries on with the CPU instead of crashing.',
+        'Reads any format through ffmpeg (voice notes, mp3, the audio of a video), which also avoids a version clash between faster-whisper and PyAV.',
+        'Spanish or English interface following the system, output to screen, .txt and .srt, 29 tests with a fake model and GitHub Actions CI on three Python versions.',
+      ],
+    },
+    learned: {
+      es: [
+        'Un modelo más grande no siempre arregla el error: el modelo grande también se equivocó en la misma palabra dicha rápido, así que me quedé con el chico y no bajé gigas de más.',
+        'Una GPU visible no es una GPU usable: probando en mi laptop, el modelo cargaba en la GPU y recién fallaba al transcribir porque faltaba una librería.',
+        'Usar la interfaz como un usuario encuentra lo que los tests no ven: manejándola desde tmux apareció un error del filtro de búsqueda que ningún test cubría.',
+      ],
+      en: [
+        'A bigger model does not always fix the mistake: the large model missed the same fast-spoken word, so I kept the small one instead of downloading extra gigabytes.',
+        'A visible GPU is not a usable GPU: on my laptop the model loaded on the GPU and only failed when transcribing, because a library was missing.',
+        'Using the interface like a user finds what tests miss: driving it from tmux exposed a search-filter bug that no test covered.',
+      ],
+    },
+    stack: ['Python', 'faster-whisper', 'Whisper', 'ffmpeg', 'questionary', 'Rich', 'pytest', 'GitHub Actions'],
+    links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_transcribe' }],
+    doodle: 'mic',
+    accent: '#cba6f7',
     featured: false,
     cv: false,
   },
@@ -1047,11 +1099,11 @@ export const story: { heading: L; doodles: SketchName[]; body: Record<Lang, stri
     body: {
       es: [
         'Fuera de la pantalla, mis pasatiempos terminaron pareciéndose a cómo trabajo: ((obsesionarme)) con un problema, probar, fallar, mejorar y, si hace falta, rearmar todo desde cero. El mejor ejemplo son los cubos de Rubik.',
-        'Empecé a los 12 o 13 años con los tutoriales del canal de ((Cuby)) en YouTube, y hoy tengo entre 20 y 30 cubos distintos. Sigo practicando ==velocidad== en [rubik.rossmel.top](https://rubik.rossmel.top), un timer que construí yo mismo: algoritmos, patrones y resolver algo pieza por pieza, igual que al programar.',
+        'Empecé a los 12 o 13 años con los tutoriales del canal de ((Cuby)) en YouTube, y hoy tengo entre 20 y 30 cubos distintos. Sigo practicando ==velocidad== en [rubik.rossmel.com](https://rubik.rossmel.com), un timer que construí yo mismo: algoritmos, patrones y resolver algo pieza por pieza, igual que al programar.',
       ],
       en: [
         'Away from the screen, my hobbies ended up looking a lot like how I work: ((obsessing)) over a problem, trying, failing, improving and, if needed, tearing everything down to rebuild it. Rubik\'s cubes are the best example.',
-        'I started at 12 or 13 with the tutorials from ((Cuby))\'s YouTube channel, and today I own between 20 and 30 different cubes. I still practice ==speed-solving== on [rubik.rossmel.top](https://rubik.rossmel.top), a timer I built myself: algorithms, patterns and solving something piece by piece, just like programming.',
+        'I started at 12 or 13 with the tutorials from ((Cuby))\'s YouTube channel, and today I own between 20 and 30 different cubes. I still practice ==speed-solving== on [rubik.rossmel.com](https://rubik.rossmel.com), a timer I built myself: algorithms, patterns and solving something piece by piece, just like programming.',
       ],
     },
   },

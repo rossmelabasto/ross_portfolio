@@ -19,7 +19,6 @@ const blog = defineCollection({
     translationOf: z.string().optional(), // solo en artículos EN (src/content/blog/en/): id del artículo ES original
     project: z.string().optional(), // slug del proyecto en src/data/profile.ts (enlaza artículo ↔ caso de estudio)
     draft: z.boolean().default(false), // true = no se publica
-    pinned: z.boolean().default(false), // true = aparece primero en el blog y en la portada
   }),
 });
 

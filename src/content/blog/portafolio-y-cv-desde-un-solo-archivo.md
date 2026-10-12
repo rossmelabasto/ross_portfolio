@@ -92,7 +92,7 @@ if (!gl) {
 
 ## El subdominio del CV en 10 líneas
 
-Quería que `cv.rossmel.top` mostrara el CV directamente, sin redirigir y sin un segundo sitio. El sitio está en **Cloudflare Pages**, así que una función en el edge resuelve la raíz de ese subdominio:
+Quería que `cv.rossmel.com` mostrara el CV directamente, sin redirigir y sin un segundo sitio. El sitio está en **Cloudflare Pages**, así que una función en el edge resuelve la raíz de ese subdominio:
 
 ```js
 export async function onRequest({ request, next, env }) {

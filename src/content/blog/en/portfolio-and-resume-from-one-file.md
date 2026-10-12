@@ -93,7 +93,7 @@ if (!gl) {
 
 ## The resume subdomain in 10 lines
 
-I wanted `cv.rossmel.top` to show the resume directly, without a redirect and without a second site. The site runs on **Cloudflare Pages**, so a function at the edge handles the root of that subdomain:
+I wanted `cv.rossmel.com` to show the resume directly, without a redirect and without a second site. The site runs on **Cloudflare Pages**, so a function at the edge handles the root of that subdomain:
 
 ```js
 export async function onRequest({ request, next, env }) {

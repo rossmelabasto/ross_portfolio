@@ -30,7 +30,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - Artículos nuevos del blog: escribir las dos versiones (ES en `src/content/blog/`, EN en `src/content/blog/en/` con `translationOf`).
 
 ## Estado (actualizar al terminar cada sesión)
-- v3.3 (sept. 2026): PUBLICADO en portfolio.rossmel.top y cv.rossmel.top. Contenido confirmado (sin TODOs).
+- v3.3 (sept. 2026): PUBLICADO en portfolio.rossmel.com y cv.rossmel.com. Contenido confirmado (sin TODOs).
 - v3.4: foto, menú móvil, sitemap, 404, formulario (/api/contact con Resend + Turnstile).
 - v3.5: terminal de arranque, terminal de envío del formulario, arreglos de foto/título/inglés.
 - Formulario de contacto y Search Console: configurados y funcionando (sept. 2026).
@@ -77,7 +77,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
   basado en `vw`/`clamp()` ya se adapta bien ahí, incluido el scroll horizontal de Proyectos; no hizo
   falta ningún breakpoint nuevo.
 - v3.20: 6ª sección "Fuera del código" en Mi historia (resultado de la entrevista de hobbies): cubos
-  de Rubik (canal de Cuby, timer en rubik.rossmel.top), fútbol (divisiones menores de Wilstermann) y
+  de Rubik (canal de Cuby, timer en rubik.rossmel.com), fútbol (divisiones menores de Wilstermann) y
   música/podcasts (José Madero, PXNDX, The Wild Project, con enlaces de búsqueda de Spotify — no existe
   embed genérico de "perfil"/stats en Spotify, solo track/álbum/artista/playlist/podcast puntuales).
   `Marked.astro` soporta `[texto](url)` como enlace real. Nuevo doodle compuesto `hobbies` (cubo +
@@ -100,8 +100,10 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.24: Notebook v3 + open source: ficha `notebook` reescrita (textos de `docs/HANDOFF-NOTEBOOK.md`, que no se commitea), enlace a GitHub, `featured: true`; artículo `notebook-apuntes-con-memoria` / `en/notebook-notes-with-memory` con capturas de la demo (datos ficticios) en `public/blog/notebook/` (primer artículo con imágenes: van en `public/blog/<tema>/` y se enlazan con Markdown). Homelab sin "gestión del hogar" (Grocy se eliminó). Tarjetas de Proyectos: `md:min-h-[4.5rem]` en la descripción (aguanta 3 líneas sin desalinear).
 - v3.25: Proyectos destacados en celular = lista `[data-stack]` en Projects.astro (las tarjetas grandes son solo `md:`). `initStack()` en animations.ts la fija con ScrollTrigger (`pinSpacing: true` obligatorio: el padre es flex y GSAP no reserva el espacio por defecto) y activa un ítem por tramo de 18 % de pantalla con snap; CSS con `.is-live` / `[data-active]` (expande con `grid-template-rows`). Sin JS o con movimiento reducido: filas con descripción.
 - v3.26: la lista fija móvil se generalizó: `initStack()` recorre todos los `[data-stack]` (Proyectos, Experiencia, Stack, Cómo trabajo) y **no fija** si con algún ítem abierto la lista supera `innerHeight - 96` (queda abierta en el flujo). No poner márgenes en el elemento `[data-stack]` (el pin los pierde): van en un contenedor. `initFocus()` = `[data-focus-item]` (scale/opacity con scrub, solo celular). En celular Experiencia no muestra las viñetas: cargo, resumen, tecnologías y enlace "Ver el detalle en mi CV".
-- v3.27: ficha `manga` (textos de `docs/HANDOFF-MANGA.md`, sin commitear): nombre "Manga", dibujo nuevo `manga` en sketches.ts, acento `#ff7eb3`, `live: manga.rossmel.top` (sumado a la lista de subdominios visibles de CONTINUAR.md), `featured`/`cv` en false. "En vivo" pasa a `xl:grid-cols-4`. Homelab y Mi historia: 10 servicios públicos / una decena (verificado en el túnel el 2026-10-09: chat, admin, mcu, notebook, rubik, selflix, waitlist, spotify, perceptron, manga). Sin capturas: las sube Rossmel (nada de portadas comerciales ni URLs con clave de API).
-- v3.28: artículo `mangas-13-gb-a-2-7-gb` / `en/manga-13-gb-to-2-7-gb` con la comparación real de formatos (sale de `herramientas/aligerar_cbz.py` del repo kavita-ros y de la medición de esa sesión). Sin nombres de series. El motivo de WebP sobre AVIF no quedó escrito en la sesión original: el artículo da los argumentos generales (soporte, decodificación, ~700 MB de diferencia); Rossmel puede corregirlo.
+- v3.27: ficha `manga` (textos de `docs/HANDOFF-MANGA.md`, sin commitear): nombre "Manga", dibujo nuevo `manga` en sketches.ts, acento `#ff7eb3`, `live: manga.rossmel.com` (sumado a la lista de subdominios visibles de CONTINUAR.md), `featured`/`cv` en false. "En vivo" pasa a `xl:grid-cols-4`. Homelab y Mi historia: 10 servicios públicos / una decena (verificado en el túnel el 2026-10-09: chat, admin, mcu, notebook, rubik, selflix, waitlist, spotify, perceptron, manga). Sin capturas: las sube Rossmel (nada de portadas comerciales ni URLs con clave de API).
+- v3.29: ficha `transcribe` (CLI open source de transcripción local con faster-whisper, repo `ross_transcribe`, MIT): dibujo `mic`, acento `#cba6f7` (Catppuccin Mocha, el de la herramienta), `featured`/`cv` en false, sin `live`. Artículo `transcribe-transcripcion-local-en-la-terminal` / `en/transcribe-local-transcription-in-the-terminal` con los GIF de la demo en `public/blog/transcribe/` (audios de dominio público). Sin datos familiares: el origen se cuenta como "una nota de voz".
+- v3.29: sin artículos fijados: se quitó `pinned` del esquema, de `blog.ts` y de "Programar antes y después de la IA" (ES/EN); el blog, la portada y el RSS van siempre por fecha.
+- v3.30: artículo `mangas-13-gb-a-2-7-gb` / `en/manga-13-gb-to-2-7-gb` con la comparación real de formatos (sale de `herramientas/aligerar_cbz.py` del repo kavita-ros y de la medición de esa sesión). Sin nombres de series. El motivo de WebP sobre AVIF no quedó escrito en la sesión original: el artículo da los argumentos generales (soporte, decodificación, ~700 MB de diferencia); Rossmel puede corregirlo.
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.

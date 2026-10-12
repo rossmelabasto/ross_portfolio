@@ -2,8 +2,8 @@
 
 Portafolio y CV de **Rossmel Abasto**.
 
-- Portafolio → `portfolio.rossmel.top` (animado, ES/EN)
-- CV → `cv.rossmel.top` (compatible con ATS, HTML + PDF, ES/EN)
+- Portafolio → `portfolio.rossmel.com` (animado, ES/EN)
+- CV → `cv.rossmel.com` (compatible con ATS, HTML + PDF, ES/EN)
 
 > La v1 (Angular 13, 2022) está en la rama `master`. Esta v3 se construyó desde cero.
 
@@ -18,7 +18,7 @@ Portafolio y CV de **Rossmel Abasto**.
 5. [Animaciones: cómo funcionan](#animaciones-cómo-funcionan)
 6. [El CV (ATS)](#el-cv-ats)
 7. [Idiomas (ES/EN)](#idiomas-esen)
-8. [Despliegue en rossmel.top](#despliegue-en-rossmeltop)
+8. [Despliegue en rossmel.com](#despliegue-en-rossmeltop)
 9. [Estado actual y pendientes](#estado-actual-y-pendientes)
 10. [Continuar con Claude Code local](#continuar-con-claude-code-local)
 11. [Historial de decisiones](#historial-de-decisiones)
@@ -245,17 +245,17 @@ y el orden de skills a cada oferta; máximo 2 páginas.
 
 ---
 
-## Despliegue en rossmel.top
+## Despliegue en rossmel.com
 
 El sitio es **100% estático** (`dist/`). Objetivo:
 
 | Subdominio | Sirve |
 |---|---|
-| `portfolio.rossmel.top` | `dist/` completo |
-| `cv.rossmel.top` | la ruta `/cv/` (o redirección a `portfolio.rossmel.top/cv/`) |
+| `portfolio.rossmel.com` | `dist/` completo |
+| `cv.rossmel.com` | la ruta `/cv/` (o redirección a `portfolio.rossmel.com/cv/`) |
 
-Contexto conocido (sept. 2026): el DNS de `rossmel.top` está en **Cloudflare** (registrador:
-Spaceship) y el certificado comodín `*.rossmel.top` ya lo emite Cloudflare. El servidor casero está
+Contexto conocido (sept. 2026): el DNS de `rossmel.com` está en **Cloudflare** (registrador:
+Spaceship) y el certificado comodín `*.rossmel.com` ya lo emite Cloudflare. El servidor casero está
 detrás de **CGNAT** (no se pueden abrir puertos) y publica servicios con un **Cloudflare Tunnel**.
 (Detalles de la infraestructura: NO se documentan aquí porque este repo es público.)
 
@@ -272,15 +272,15 @@ aparte `rossmel-web`, que duplicaba el sitio.)
 | Output directory | `dist` |
 | Root directory | *(vacío)* |
 | Variable de entorno | `NODE_VERSION=22` (también hay `.nvmrc`; Astro 7 pide ≥ 22.12) |
-| Custom domains | `portfolio.rossmel.top` y `cv.rossmel.top` (añadirlos desde Pages; **no** crear CNAME a mano) |
+| Custom domains | `portfolio.rossmel.com` y `cv.rossmel.com` (añadirlos desde Pages; **no** crear CNAME a mano) |
 
 Piezas del repo que lo hacen funcionar:
-- `functions/_middleware.js` — en `cv.rossmel.top/` sirve `/cv/` sin redirigir.
+- `functions/_middleware.js` — en `cv.rossmel.com/` sirve `/cv/` sin redirigir.
 - `public/_routes.json` — la función solo corre en `/` (no gasta invocaciones en assets).
 - `public/_headers` — cabeceras de seguridad y caché larga para `/_astro/*`.
 - `public/cv/*.pdf` — los PDF del CV van versionados (el build de Cloudflare no tiene Chromium):
   **siempre** correr `npm run cv:pdf` y commitear los PDF cuando cambie el contenido del CV.
-- El enlace "Ver portafolio" del CV es absoluto (`portfolio.rossmel.top`) porque en `cv.` la raíz es el CV.
+- El enlace "Ver portafolio" del CV es absoluto (`portfolio.rossmel.com`) porque en `cv.` la raíz es el CV.
 
 Analítica: Cloudflare Web Analytics (sin cookies) con **inyección automática** de la zona: ya funciona
 en portfolio. y cv. (Cloudflare solo inyecta el script a navegadores reales, no a `curl`).
@@ -294,10 +294,10 @@ Respaldo: si algún día se apaga la inyección automática, definir la variable
 El formulario **solo aparece** si en el build existe `PUBLIC_TURNSTILE_SITE_KEY`; sin eso, la sección
 de contacto muestra solo los botones de correo/CV. Configuración (una vez):
 
-1. **Turnstile**: Cloudflare → Turnstile → Add widget → dominios `portfolio.rossmel.top`
+1. **Turnstile**: Cloudflare → Turnstile → Add widget → dominios `portfolio.rossmel.com`
    (y `rossmel-portfolio.pages.dev` para las vistas previas), modo *Managed*.
    Copia la *site key* (pública) y la *secret key*.
-2. **Resend** (gratis hasta 3.000 correos/mes): crear cuenta → Domains → añadir `rossmel.top` →
+2. **Resend** (gratis hasta 3.000 correos/mes): crear cuenta → Domains → añadir `rossmel.com` →
    copiar sus registros DNS (SPF/DKIM) en Cloudflare DNS → esperar "Verified" → API Keys → crear
    una con permiso *Sending access*.
 3. **Pages → rossmel-portfolio → Settings → Variables and Secrets** (Production y Preview):
@@ -305,7 +305,7 @@ de contacto muestra solo los botones de correo/CV. Configuración (una vez):
    - `TURNSTILE_SECRET_KEY` = secret key (**Secret**)
    - `RESEND_API_KEY` = API key de Resend (**Secret**)
    - opcionales: `CONTACT_TO` (destino, por defecto abastorossmel@gmail.com),
-     `CONTACT_FROM` (por defecto `Portafolio <contacto@rossmel.top>`)
+     `CONTACT_FROM` (por defecto `Portafolio <contacto@rossmel.com>`)
    - opcionales, aviso por Telegram: `TELEGRAM_BOT_TOKEN` (**Secret**) y `TELEGRAM_CHAT_ID`
 4. Redesplegar (Deployments → Retry) y probar el formulario en producción.
 
@@ -336,7 +336,7 @@ canales), `503 not_configured` (falta Turnstile o no hay ningún canal).
 - Frontmatter: `title`, `description` (1–2 frases, sale en Google y al compartir), `date`,
   `tags`, `lang` (`es`/`en`, por defecto `es`), `draft: true` para no publicar,
   `project: '<slug>'` para enlazarlo con su caso de estudio (el caso lista sus artículos y el
-  artículo muestra una tarjeta al proyecto) y `pinned: true` para que salga primero.
+  artículo muestra una tarjeta al proyecto). El orden es siempre por fecha (ya no hay artículos fijados).
 - Etiquetas: reusar las existentes (`ia`, `llm`, `python`, `frontend`, `react`, `linux`,
   `rendimiento`…). Las que tienen un solo artículo se agrupan tras el botón "+N más".
 - Portada con **buscador** (texto completo: el índice `search.json` se descarga solo al
@@ -365,16 +365,16 @@ El formulario de contacto al final de cada artículo sigue funcionando igual.
 - Cada artículo termina con el formulario de contacto (`ContactForm` con `context` = título):
   el correo llega con el asunto "Blog: comentario de … sobre …".
 - RSS en `/blog/rss.xml`; aparece en el sitemap; la home muestra los 3 últimos ("Del blog").
-- `blog.rossmel.top` → Redirect Rule 301 a `https://portfolio.rossmel.top/blog/` (mismo dominio =
+- `blog.rossmel.com` → Redirect Rule 301 a `https://portfolio.rossmel.com/blog/` (mismo dominio =
   mejor posicionamiento que un subdominio aparte).
 - Código con resaltado (Shiki, tema `vitesse-dark`); estilos del texto en `.prose` (global.css).
 
 ### Analítica (visitas)
 - **Cloudflare Web Analytics** ya está activo (inyección automática, sin cookies). Para verlo:
-  dash.cloudflare.com → tu cuenta → **Analytics & Logs → Web Analytics** → `portfolio.rossmel.top`:
+  dash.cloudflare.com → tu cuenta → **Analytics & Logs → Web Analytics** → `portfolio.rossmel.com`:
   visitas, páginas vistas, páginas más vistas, de dónde llegan (referrers), países, dispositivos y
   Core Web Vitals. También: Workers & Pages → `rossmel-portfolio` → *Metrics*.
-- **Google Search Console** (search.google.com/search-console, propiedad `rossmel.top`) → *Rendimiento*:
+- **Google Search Console** (search.google.com/search-console, propiedad `rossmel.com`) → *Rendimiento*:
   qué buscó la gente para llegar (p. ej. "rossmel abasto"), impresiones, clics y posición.
   *Inspección de URLs* → pedir indexación de páginas nuevas (los artículos EN, por ejemplo).
 - No se usa Google Analytics a propósito: pesa más, usa cookies y pediría banner de consentimiento.
@@ -430,7 +430,7 @@ python3 scripts/build-photo-layers.py --white foto-fondo-blanco.jpg --original f
 
 ### SEO
 - `@astrojs/sitemap` genera `sitemap-index.xml` (ES/EN con hreflang); `robots.txt` lo declara.
-- Dar de alta `https://portfolio.rossmel.top` en **Google Search Console** (verificación por DNS,
+- Dar de alta `https://portfolio.rossmel.com` en **Google Search Console** (verificación por DNS,
   que ya está en Cloudflare) y enviar `sitemap-index.xml`.
 - `404.html` propia (bilingüe).
 - En cada página: canonical, hreflang ES/EN + `x-default`, Open Graph completo (`og:locale`, imagen
@@ -438,12 +438,12 @@ python3 scripts/build-photo-layers.py --white foto-fondo-blanco.jpg --original f
   universidad y temas); en la home además `WebSite`. Esto ayuda a que buscar "Rossmel Abasto" muestre
   el portafolio y un panel con tus perfiles.
 - Para posicionar tu nombre, lo que más pesa fuera del código: que **LinkedIn, GitHub (perfil y README),
-  GitLab y cualquier perfil público enlacen a `https://portfolio.rossmel.top`**; volver a enviar el
+  GitLab y cualquier perfil público enlacen a `https://portfolio.rossmel.com`**; volver a enviar el
   sitemap en Search Console tras cada tanda de artículos; opcional, publicar copias en dev.to/Hashnode con
   *canonical URL* apuntando al artículo original (traen lectores sin robar posicionamiento).
 
 Extras en Cloudflare (Rules → Redirect Rules):
-- `rossmel.top` y `www.rossmel.top` → 301 a `https://portfolio.rossmel.top` (preservar ruta).
+- `rossmel.com` y `www.rossmel.com` → 301 a `https://portfolio.rossmel.com` (preservar ruta).
 
 Flujo diario: push a `main` = producción; push a otra rama / PR = URL de vista previa `*.pages.dev`.
 
@@ -466,12 +466,12 @@ Flujo diario: push a `main` = producción; push a otra rama / PR = URL de vista 
 - [x] Todos los datos confirmados (sin `TODO(confirmar)` pendientes)
 - [x] Imagen para compartir (`public/og.png`, 1200×630, `npm run og`)
 - [ ] Capturas reales de proyectos (las sube Rossmel más adelante; ver "Imágenes de proyectos")
-- [x] Publicado en Cloudflare Pages: portfolio.rossmel.top y cv.rossmel.top (sept. 2026)
+- [x] Publicado en Cloudflare Pages: portfolio.rossmel.com y cv.rossmel.com (sept. 2026)
 - [x] Formulario de contacto funcionando en producción (Resend verificado con SPF/DKIM/DMARC, Turnstile activo; prueba real llegó a la bandeja de entrada)
 - [ ] (Opcional) Copiar las 3 variables del formulario también al entorno *Preview* de Pages
 - [x] Foto en "Sobre mí" (`src/assets/rossmel.jpg`, optimizada a WebP por Astro)
 - [x] Menú móvil, sitemap, 404 propia, auditoría Lighthouse (local: perf 87–94, a11y 95–96, BP/SEO 100; CV 100 en todo)
-- [x] Google Search Console verificado (propiedad de dominio `rossmel.top`) y sitemap enviado
+- [x] Google Search Console verificado (propiedad de dominio `rossmel.com`) y sitemap enviado
 - [ ] Video corto de AdvAI + capturas (Rossmel)
 - [x] Revisión exhaustiva con Claude local (`docs/REVISION.md`) — correcciones aplicadas en v3.7
 - [ ] Perfil de GitHub (`docs/github-profile/`, ver INSTRUCCIONES.md) y LinkedIn (`docs/LINKEDIN.md`)
@@ -510,13 +510,13 @@ Ramas:
 | 2026-09 | Astro en lugar de Next.js: sitio estático, más liviano, ideal para servirlo desde el servidor propio. |
 | 2026-09 | Contenido centralizado en `profile.ts` para que portafolio y CV nunca se desincronicen. |
 | 2026-09 | Shader WebGL propio en vez de three.js (≈4 KB vs ≈600 KB). |
-| 2026-09 | Dominio propio `rossmel.top` en vez de Vercel. |
+| 2026-09 | Dominio propio `rossmel.com` en vez de Vercel. |
 | 2026-09 | Estética dark + acento lima aprobada por Rossmel ("me encanta"). |
 | 2026-09 | Proyectos de clientes de WANT sin código ni enlaces (`confidential`); métricas de commits como evidencia. |
 | 2026-09 | CV limitado a 2 páginas: SGPG y Link'u solo en la experiencia "Independiente"; diseño gráfico solo en el portafolio. |
 | 2026-09 | v3.7 tras la revisión: header a 360 px, CSS en línea + precarga de fuentes (LCP), blog con portada EN, og:type article, validación del formulario en el idioma de la página, contraste en modo claro y en el código. |
 | 2026-09 | Texto en JetBrains Mono (Space Grotesk en titulares; Inter solo en artículos largos). Pedido de Rossmel. |
-| 2026-09 | Blog en `/blog` (no subdominio aparte, por SEO); `blog.rossmel.top` redirige. Primer artículo: AdvAI. |
+| 2026-09 | Blog en `/blog` (no subdominio aparte, por SEO); `blog.rossmel.com` redirige. Primer artículo: AdvAI. |
 | 2026-09 | Hero: fondo CSS de respaldo si el navegador no tiene WebGL; botones Ver proyectos / Descargar CV. |
 | 2026-09 | Identidad: monograma de Rossmel (`src/assets/logo.svg`, componente `Logo.astro`) en nav, footer, favicon, íconos PWA y og.png. |
 | 2026-09 | Contador del preloader → terminal de arranque; envío del formulario mostrado como script (idea de Rossmel). |
@@ -537,7 +537,9 @@ Ramas:
 | 2026-09 | v3.15: nuevo titular del hero ("Construyo interfaces rápidas, cuidadas y listas para producción. Programo desde 2020…"), íconos en los botones CV y ES/EN (nav y barra del CV) y el botón "volver arriba" sube al llegar al footer para no tapar sus enlaces. Pedido de Rossmel. |
 | 2026-09 | Traspaso a Claude local: guía `docs/CONTINUAR.md` y `npm run verify` (chequeo automático tras el build). |
 | 2026-10 | Artículo "De 13 GB a 2,7 GB: cómo elegí formato y resolución para mangas escaneados" (ES/EN, `project: manga`): comparación medida JPEG/WebP/AVIF a 2000/2400/3200 px, por qué 2400 px (trama de puntos) y por qué WebP. Primer artículo con tabla. Pedido de Rossmel. |
-| 2026-10 | Ficha nueva **Manga** (manga.rossmel.top, lector de mangas con Kavita + marca rOS, subida automática y optimización medida 13 GB → 2,7 GB), con dibujo `manga` (libro abierto), acento `#ff7eb3` y tarjeta en "En vivo" (4 en fila desde `xl`). Homelab: 10 servicios públicos (antes decía 12). Pedido de Rossmel. |
+| 2026-10 | Blog: se quitó el "fijado" (`pinned`). "Programar antes y después de la IA" salía siempre primero aunque es de septiembre, y el orden "Más recientes" no era real. Ahora todo va por fecha (blog, portada y RSS). Pedido de Rossmel. |
+| 2026-10 | Ficha nueva **transcribe** (CLI open source de transcripción local: selector interactivo, marcas de tiempo, subtítulos .srt, ES/EN; repo `ross_transcribe`, MIT), con dibujo `mic` y acento `#cba6f7`, no destacada; artículo "transcribe: de una nota de voz a una herramienta open source para la terminal" (ES/EN) con GIF de la demo en `public/blog/transcribe/`. Pedido de Rossmel. |
+| 2026-10 | Ficha nueva **Manga** (manga.rossmel.com, lector de mangas con Kavita + marca rOS, subida automática y optimización medida 13 GB → 2,7 GB), con dibujo `manga` (libro abierto), acento `#ff7eb3` y tarjeta en "En vivo" (4 en fila desde `xl`). Homelab: 10 servicios públicos (antes decía 12). Pedido de Rossmel. |
 | 2026-10 | Celular: Experiencia, Stack y Cómo trabajo usan la misma lista fija que Proyectos (Experiencia muestra cargo, resumen y tecnologías, con enlace al CV para el detalle); otros proyectos, En vivo y Blog crecen al pasar por el centro (`data-focus-item`); menos espacio vertical entre secciones. La home pasó de ~21 a ~14,8 pantallas de celular. Escritorio sin cambios. Pedido de Rossmel. |
 | 2026-10 | Proyectos destacados en celular: en vez de 7 tarjetas grandes (~4 pantallas de scroll), una lista fija donde el scroll abre un proyecto a la vez (`data-stack`, ~2,4 pantallas; ~1,8 sin animaciones). Escritorio sin cambios. Pedido de Rossmel. |
 | 2026-10 | Notebook v3 y open source (MIT): ficha reescrita (búsqueda híbrida sqlite-vec + FTS5, Recall@6 93 %, modo estudio, IA en planes gratuitos, enlace a GitHub), pasa a destacado; artículo "Notebook: mis apuntes como un chat conmigo mismo" (ES/EN) con capturas de la demo en `public/blog/notebook/`. Homelab ya no menciona Grocy (eliminado). Descripción de las tarjetas de Proyectos con alto mínimo de 3 líneas. Pedido de Rossmel. |

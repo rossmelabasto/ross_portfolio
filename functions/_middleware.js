@@ -1,6 +1,6 @@
 /**
- * Cloudflare Pages Function: en cv.rossmel.top la raíz "/" muestra el CV (/cv/)
- * sin redirigir (la URL sigue siendo cv.rossmel.top). Todo lo demás pasa normal.
+ * Cloudflare Pages Function: en cv.rossmel.com la raíz "/" muestra el CV (/cv/)
+ * sin redirigir (la URL sigue siendo cv.rossmel.com). Todo lo demás pasa normal.
  * Solo se ejecuta en "/" gracias a public/_routes.json (no consume invocaciones en assets).
  */
 export async function onRequest({ request, next, env }) {

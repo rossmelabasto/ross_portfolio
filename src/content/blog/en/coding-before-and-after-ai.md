@@ -5,7 +5,6 @@ date: 2026-09-16
 tags: ['ai', 'career']
 lang: 'en'
 translationOf: 'programar-antes-de-la-ia'
-pinned: true
 ---
 
 Today anyone can ask a model to "build me a to-do app" and have something running in ten minutes. It's amazing, and I use it every day. But the way I use AI has a lot to do with how I learned to code before it existed.

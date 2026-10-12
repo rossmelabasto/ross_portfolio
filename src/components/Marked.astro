@@ -22,8 +22,8 @@ const parts = text.split(/(==[^=]+==|\(\([^)]+\)\)|\[[^\]]+\]\([^)]+\))/).filter
     <a
       href={p.href}
       class="text-accent underline-offset-4 hover:underline"
-      target={p.href.includes('rossmel.top') ? undefined : '_blank'}
-      rel={p.href.includes('rossmel.top') ? undefined : 'noopener noreferrer'}
+      target={p.href.includes('rossmel.com') ? undefined : '_blank'}
+      rel={p.href.includes('rossmel.com') ? undefined : 'noopener noreferrer'}
     >{p.t}</a>
   ) : (
     <span class={`relative inline-block whitespace-nowrap text-fg ${p.kind === 'circle' ? 'mx-2' : ''}`}>
