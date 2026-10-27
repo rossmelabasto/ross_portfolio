@@ -736,6 +736,58 @@ export const projects: Project[] = [
     cv: false,
   },
   {
+    slug: 'genogramapp',
+    name: 'GenogramApp',
+    year: '2026',
+    kind: { es: 'A medida · Para una estudiante de Psicología', en: 'Custom build · For a psychology student' },
+    tagline: {
+      es: 'Genogramas que se dibujan solos: escribes, dictas o fotografías las hojas de clase y la app arma el mapa de la familia.',
+      en: 'Genograms that draw themselves: type, dictate or photograph your class notes and the app builds the family map.',
+    },
+    problem: {
+      es: 'Un genograma es el mapa de una familia que se usa en psicología, y armarlo a mano obliga a rehacerlo cada vez que aparece un dato nuevo: un hermano olvidado, un segundo matrimonio. GenogramApp separa los datos del dibujo: se editan los datos y el genograma se vuelve a acomodar solo. La hice a medida para una estudiante de Psicología, para sus prácticas, en Android y en la web.',
+      en: 'A genogram is the family map used in psychology, and drawing it by hand means redoing it every time a new fact shows up: a forgotten sibling, a second marriage. GenogramApp separates the data from the drawing: you edit the data and the genogram rearranges itself. I built it for a psychology student, for her practicum, on Android and the web.',
+    },
+    role: {
+      es: 'Todo: investigación de la notación, diseño, la app y la web, el servidor y la IA, ajustando cada versión con los comentarios de la usuaria.',
+      en: 'Everything: researching the notation, design, the app and the web version, the server and the AI, adjusting each version with feedback from the user.',
+    },
+    highlights: {
+      es: [
+        'Genograma automático con la notación de McGoldrick y Gerson: fallecidos, paciente índice, embarazos, abortos, mascotas, uniones, divorcios, adopciones y varios hogares con nombre y color, más 34 tipos de relación.',
+        'IA con revisión humana: se escribe, se dicta o se fotografían las hojas; la IA propone el genograma y muestra una vista previa de lo que cambia antes de agregar nada, y no inventa datos que no están.',
+        'App de Android (Capacitor) y web con los casos sincronizados: gana el cambio más reciente de cada caso y los borrados se recuerdan.',
+        'Coste cero y datos cuidados: servidor propio, IA en planes gratuitos con una cadena de modelos de respaldo (y Tesseract para leer fotos si todo falla); la clave de IA nunca viaja en la app.',
+        'Probada en serio: 49 pruebas de lógica (incluidas 320 familias generadas al azar), 62 escenarios de extremo a extremo y una prueba real: 2 fotos de una hoja → 18 personas, 18 relaciones y 2 hogares correctos en menos de un minuto.',
+      ],
+      en: [
+        'Automatic genogram with the McGoldrick–Gerson notation: deceased, index patient, pregnancies, miscarriages, pets, unions, divorces, adoptions and several named, color-coded households, plus 34 relationship types.',
+        'AI with human review: type, dictate or photograph the notes; the AI proposes the genogram and shows a preview of what changes before adding anything, and it does not invent facts that are not there.',
+        'Android app (Capacitor) and web version with synced cases: the latest change to each case wins and deletions are remembered.',
+        'Zero cost and careful with the data: my own server, AI on free tiers with a chain of fallback models (and Tesseract to read photos if everything fails); the AI key never ships inside the app.',
+        'Seriously tested: 49 logic tests (including 320 randomly generated families), 62 end-to-end scenarios and a real run: 2 photos of a sheet → 18 people, 18 relationships and 2 households, all correct, in under a minute.',
+      ],
+    },
+    learned: {
+      es: [
+        'Datos primero, dibujo después: calcular el genograma desde los datos hizo que corregir sea cambiar un campo, no redibujar.',
+        'En Capacitor el botón atrás de Android no pasa por el historial del navegador: tuve que llevar mi propia pila de pantallas abiertas.',
+        'Las cuotas gratis se acaban rápido (20 consultas por día por modelo): una cadena de respaldo y una vista previa antes de aplicar evitan perder trabajo y que la IA invente.',
+      ],
+      en: [
+        'Data first, drawing second: computing the genogram from the data made fixing something a matter of changing a field, not redrawing.',
+        "In Capacitor, Android's back button does not go through the browser history: I had to keep my own stack of open screens.",
+        'Free quotas run out fast (20 requests per day per model): a fallback chain and a preview before applying avoid losing work and keep the AI from inventing things.',
+      ],
+    },
+    stack: ['React', 'TypeScript', 'Vite', 'Capacitor', 'Android', 'SVG', 'jsPDF', 'Python', 'Docker', 'Gemini', 'Groq', 'Tesseract'],
+    doodle: 'genogram',
+    accent: '#ffb6d5',
+    confidential: true, // repo privado; no se enlaza la web ni se nombra a la usuaria
+    featured: false,
+    cv: false,
+  },
+  {
     slug: 'ros',
     name: 'rOS',
     year: '2026',
