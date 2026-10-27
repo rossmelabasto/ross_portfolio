@@ -478,7 +478,7 @@ export const projects: Project[] = [
     stack: ['Arch Linux', 'Docker', 'systemd', 'Cloudflare Tunnel', 'Tailscale', 'OpenClaw', 'KVM'],
     doodle: 'homelab',
     accent: '#5dffb0',
-    featured: true,
+    featured: false,
     cv: true,
   },
   {
@@ -533,7 +533,7 @@ export const projects: Project[] = [
     live: 'notebook.rossmel.com',
     doodle: 'notebook',
     accent: '#ffd166',
-    featured: true,
+    featured: false,
     cv: true,
   },
   {
@@ -819,7 +819,7 @@ export const projects: Project[] = [
     stack: ['Arch Linux', 'niri', 'DankMaterialShell', 'Limine', 'Shell', 'systemd'],
     doodle: 'linux',
     accent: '#8ab4ff',
-    featured: true,
+    featured: false,
     cv: true,
   },
   {
