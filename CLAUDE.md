@@ -107,6 +107,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.31: SGPG es repo privado desde 2026-10-11: ficha con `confidential: true`, sin `links`; README del perfil de GitHub (y su copia en `docs/github-profile/`) sin enlace.
 - v3.32: ficha `genogramapp` (textos de `~/code/genograma-app/docs/03-portafolio.md`): proyecto a medida para una estudiante de Psicología, **sin nombrarla**, sin enlace a su web ni al repo (`confidential: true`), dibujo `genogram`, acento `#ffb6d5`, `featured`/`cv` en false. Capturas (familias inventadas) en el repo de la app (`docs/portafolio/`), para usar en los artículos.
 - v3.33: tres artículos de GenogramApp (`genograma-que-se-dibuja-solo`, `ia-que-no-inventa-familias`, `boton-atras-de-android-en-capacitor` + EN), con capturas de `docs/portafolio/` del proyecto (solo familias inventadas) en `public/blog/genogramapp/`. Marcas ==…==/((…)) cortas (2–4 palabras): son `whitespace-nowrap` y una frase larga desborda en móvil (`npm run verify` no revisa todos los artículos).
+- v3.34: destacados solo `advai`, `carx`, `sgpg` y `agua-potable`; `homelab`, `notebook` y `ros` con `featured: false` (pedido de Rossmel: el scroll se hacía largo).
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.
