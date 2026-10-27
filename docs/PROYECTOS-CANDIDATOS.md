@@ -17,6 +17,7 @@ Actualizado: sept. 2026 (tras las respuestas de Rossmel y el informe de Claude C
 | Rubik (en vivo) | lista + En vivo | ✅ | revisar textos |
 | Selflix (en vivo) | lista + En vivo | ❌ | revisar textos |
 | Manga (en vivo) | lista + En vivo | ❌ | capturas (sin portadas comerciales ni URLs con clave) |
+| GenogramApp (a medida, privado) | lista | ❌ | artículos del blog con capturas de familias inventadas |
 | Adsie · WANT | lista | en experiencia | — |
 | Bite · WANT | lista | en experiencia | — |
 | One Life Fitness · WANT (2023–2025) | lista | en experiencia | — |

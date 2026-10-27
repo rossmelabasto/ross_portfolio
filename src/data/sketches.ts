@@ -335,6 +335,19 @@ export const sketches = {
       g.line(38, 74, 60, 74, o),
     ],
   },
+  genogram: {
+    // genograma: hombre (cuadrado) y mujer (círculo) unidos, con una hija y un hijo
+    viewBox: '0 0 100 100',
+    shapes: (g, o) => [
+      g.rectangle(10, 12, 20, 20, o),
+      g.circle(80, 22, 21, { ...o, seed: 5 }),
+      g.linearPath([[20, 32], [20, 46], [80, 46], [80, 32]], { ...o, seed: 6 }),
+      g.line(50, 46, 50, 58, { ...o, seed: 7 }),
+      g.linearPath([[30, 70], [30, 58], [70, 58], [70, 70]], { ...o, seed: 8 }),
+      g.circle(30, 80, 20, { ...o, seed: 9 }),
+      g.rectangle(60, 70, 20, 20, { ...o, seed: 10 }),
+    ],
+  },
   manga: {
     // libro abierto con viñetas de manga en las dos páginas
     viewBox: '0 0 100 100',

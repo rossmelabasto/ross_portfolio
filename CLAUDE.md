@@ -105,6 +105,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.29: sin artículos fijados: se quitó `pinned` del esquema, de `blog.ts` y de "Programar antes y después de la IA" (ES/EN); el blog, la portada y el RSS van siempre por fecha.
 - v3.30: artículo `mangas-13-gb-a-2-7-gb` / `en/manga-13-gb-to-2-7-gb` con la comparación real de formatos (sale de `herramientas/aligerar_cbz.py` del repo kavita-ros y de la medición de esa sesión). Sin nombres de series. El motivo de WebP sobre AVIF no quedó escrito en la sesión original: el artículo da los argumentos generales (soporte, decodificación, ~700 MB de diferencia); Rossmel puede corregirlo.
 - v3.31: SGPG es repo privado desde 2026-10-11: ficha con `confidential: true`, sin `links`; README del perfil de GitHub (y su copia en `docs/github-profile/`) sin enlace.
+- v3.32: ficha `genogramapp` (textos de `~/code/genograma-app/docs/03-portafolio.md`): proyecto a medida para una estudiante de Psicología, **sin nombrarla**, sin enlace a su web ni al repo (`confidential: true`), dibujo `genogram`, acento `#ffb6d5`, `featured`/`cv` en false. Capturas (familias inventadas) en el repo de la app (`docs/portafolio/`), para usar en los artículos.
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.
