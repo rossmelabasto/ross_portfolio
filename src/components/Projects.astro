@@ -3,11 +3,20 @@ import type { Lang } from '../data/profile';
 import { visibleProjects as projects } from '../data/profile';
 import { t, paths } from '../data/i18n';
 import Sketch from './Sketch.astro';
+import ProjectRow from './ProjectRow.astro';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
 const featured = projects.filter((p) => p.featured);
 const others = projects.filter((p) => !p.featured);
+// Lista de abajo por grupos; las apps de WANT van juntas en una fila desplegable dentro de "Para clientes"
+const want = others.filter((p) => p.group === 'want');
+const wantYearNums = want.flatMap((p) => p.year.match(/\d{4}/g) ?? []).map(Number);
+const wantYears = want.length ? `${Math.min(...wantYearNums)} – ${Math.max(...wantYearNums)}` : '';
+const groups = [
+  { key: 'clients', title: s.work.clients, items: others.filter((p) => p.group === 'clients') },
+  { key: 'own', title: s.work.own, items: others.filter((p) => p.group === 'own') },
+].map((g) => ({ ...g, count: g.items.length + (g.key === 'clients' ? want.length : 0) }));
 ---
 <section
   id="work"
@@ -19,7 +28,7 @@ const others = projects.filter((p) => !p.featured);
 >
   <div
     data-track
-    class="flex h-full flex-col gap-6 px-5 py-24 md:flex-row md:items-center md:gap-10 md:px-10 md:py-0"
+    class="flex h-full flex-col gap-6 px-5 pb-6 pt-24 md:flex-row md:items-center md:gap-10 md:px-10 md:py-0"
   >
     <div class="shrink-0 md:w-[38vw] md:snap-start md:pr-[3vw]">
       <p class="kicker mb-6">{s.work.kicker}</p>
@@ -76,18 +85,36 @@ const others = projects.filter((p) => !p.featured);
   </div>
 </section>
 
-<section class="px-5 py-14 md:px-10 md:py-24">
-  <ul class="border-t border-line">
-    {others.map((p, i) => (
-      <li class="border-b border-line" data-reveal>
-        <a href={paths.project(lang, p.slug)} data-hover data-draw-host data-focus-item class="group flex origin-left flex-col gap-1 py-4 transition-colors hover:text-accent md:grid md:grid-cols-12 md:items-baseline md:gap-4 md:py-6">
-          <span class="display flex items-center gap-3 text-2xl font-semibold md:col-span-4 md:gap-4 md:text-5xl">{p.name}{p.doodle && <Sketch name={p.doodle} seed={i + 71} class="h-7 w-7 shrink-0 text-accent md:h-11 md:w-11" />}</span>
-          <span class="hidden text-muted md:col-span-5 md:block">{p.tagline[lang]}</span>
-          <span class="kicker md:col-span-3 md:text-right">{p.kind[lang]} · {p.year}</span>
-        </a>
-      </li>
-    ))}
-  </ul>
+<section class="px-5 pb-14 pt-2 md:px-10 md:py-24">
+  {groups.map((g, gi) => (
+    <div class:list={[gi > 0 && 'mt-14 md:mt-20']}>
+      <h3 class="kicker mb-4 flex items-baseline gap-3 md:mb-6">{g.title} <span class="font-mono text-muted">({String(g.count).padStart(2, '0')})</span></h3>
+      <ul class="border-t border-line">
+        {g.key === 'clients' && want.length > 0 && (
+          <li class="border-b border-line" data-reveal>
+            <details data-want class="group/want">
+              <summary data-hover class="flex cursor-pointer list-none flex-col gap-1 py-4 transition-colors hover:text-accent md:grid md:grid-cols-12 md:items-baseline md:gap-4 md:py-6 [&::-webkit-details-marker]:hidden">
+                <span class="display flex items-center gap-3 text-2xl font-semibold md:col-span-4 md:gap-4 md:text-5xl">
+                  WANT
+                  <span class="font-mono text-xs font-normal text-muted md:text-sm">Digital Agency</span>
+                </span>
+                <span class="hidden text-muted md:col-span-5 md:block">{s.work.wantBody} {want.map((p) => p.name).join(', ')}.</span>
+                <span class="kicker flex items-center gap-2 md:col-span-3 md:justify-end">
+                  <span class="md:hidden">{s.work.wantKind} · {want.length} {s.work.apps} · {wantYears}</span>
+                  <span class="hidden md:inline">{want.length} {s.work.apps} · {wantYears}</span>
+                  <span class="ml-auto text-base leading-none text-accent transition-transform duration-300 group-open/want:rotate-45 md:ml-1" aria-hidden="true">+</span>
+                </span>
+              </summary>
+              <ul class="mb-4 border-t border-dashed border-line md:mb-6">
+                {want.map((p, i) => <ProjectRow p={p} lang={lang} seed={i + 131} nested />)}
+              </ul>
+            </details>
+          </li>
+        )}
+        {g.items.map((p, i) => <ProjectRow p={p} lang={lang} seed={i + 71 + gi * 20} />)}
+      </ul>
+    </div>
+  ))}
 </section>
 
 <style>

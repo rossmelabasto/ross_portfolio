@@ -485,4 +485,7 @@ export async function initAnimations() {
   await nextFrame();
   await runChunked(revealTasks());
   ScrollTrigger.refresh();
+  // Un <details> que se abre o cierra (p. ej. el grupo de WANT en Proyectos) mueve todo lo de abajo:
+  // las posiciones de los ScrollTrigger quedan viejas si no se recalculan
+  document.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', () => ScrollTrigger.refresh()));
 }

@@ -258,6 +258,10 @@ export type Project = {
   name: string;
   year: string;
   kind: L; // "Cliente · WANT", "Proyecto de grado", etc.
+  /** grupo en la lista de proyectos: 'want' = fila desplegable de WANT, 'clients' = para clientes, 'own' = propios */
+  group: 'want' | 'clients' | 'own';
+  /** etiqueta corta para la lista en celular (si falta se usa `kind`; los que tienen `live` dicen "En vivo") */
+  short?: L;
   tagline: L;
   problem: L;
   role: L;
@@ -285,6 +289,7 @@ export const projects: Project[] = [
     name: 'AdvAI',
     year: '2026',
     kind: { es: 'Proyecto de grado · UDABOL', en: 'Capstone · UDABOL' },
+    group: 'own',
     tagline: {
       es: 'Auditoría legal de contratos con IA y citas verificables.',
       en: 'AI legal contract auditing with verifiable citations.',
@@ -326,6 +331,7 @@ export const projects: Project[] = [
     name: 'CarX',
     year: '2023 – 2025',
     kind: { es: 'GeekLabs · vía WANT Digital Agency', en: 'GeekLabs · via WANT Digital Agency' },
+    group: 'clients',
     tagline: {
       es: 'SaaS multi-tenant para talleres mecánicos (antes Vulcano).',
       en: 'Multi-tenant SaaS for auto repair shops (formerly Vulcano).',
@@ -368,6 +374,7 @@ export const projects: Project[] = [
     name: 'SGPG',
     year: '2026',
     kind: { es: 'Universidad · UDABOL', en: 'University · UDABOL' },
+    group: 'own',
     tagline: {
       es: 'Sistema de gestión de proyectos de grado para mi universidad.',
       en: 'Thesis project management system for my university.',
@@ -407,6 +414,7 @@ export const projects: Project[] = [
     name: "Link'u",
     year: '2026',
     kind: { es: 'Cliente · Proyecto pagado', en: 'Client · Paid project' },
+    group: 'clients',
     tagline: {
       es: 'App de escritorio offline-first para el cobro de agua potable de una comunidad.',
       en: 'Offline-first desktop app for a rural community\'s water billing.',
@@ -446,6 +454,8 @@ export const projects: Project[] = [
     name: 'Homelab',
     year: '2026',
     kind: { es: 'Proyecto personal · Infraestructura', en: 'Personal project · Infrastructure' },
+    group: 'own',
+    short: { es: 'Infraestructura', en: 'Infrastructure' },
     tagline: {
       es: 'Servidor casero 24/7 con diez servicios públicos y un agente de IA (OpenClaw) que lo opera.',
       en: 'A 24/7 home server running ten public services, operated by an AI agent (OpenClaw).',
@@ -486,6 +496,7 @@ export const projects: Project[] = [
     name: 'Notebook',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Apuntes como un chat contigo mismo, con memoria: les preguntas, los buscas y estudias con flashcards. Open source.',
       en: 'Notes as a chat with yourself, with memory: ask them, search them and study with flashcards. Open source.',
@@ -541,6 +552,7 @@ export const projects: Project[] = [
     name: 'Rubik',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Para practicar cubo de Rubik y otros puzzles, con mezclas oficiales y visor 3D.',
       en: 'Practice the Rubik\'s cube and other puzzles, with official scrambles and a 3D viewer.',
@@ -590,6 +602,7 @@ export const projects: Project[] = [
     name: 'Selflix',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Mi propio "Netflix": un media center con Jellyfin en mi servidor casero.',
       en: 'My own "Netflix": a Jellyfin media center on my home server.',
@@ -639,6 +652,7 @@ export const projects: Project[] = [
     name: 'Manga',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Mi propio lector de mangas: biblioteca compartida, progreso por persona y app en el celular.',
       en: 'My own manga reader: shared library, per-person progress and a phone app.',
@@ -688,6 +702,8 @@ export const projects: Project[] = [
     name: 'transcribe',
     year: '2026',
     kind: { es: 'Proyecto personal · Open source', en: 'Personal project · Open source' },
+    group: 'own',
+    short: { es: 'Open source', en: 'Open source' },
     tagline: {
       es: 'Transcripción de audio y video en la terminal, local y sin internet: selector interactivo, marcas de tiempo y subtítulos. Open source.',
       en: 'Audio and video transcription in the terminal, local and offline: interactive picker, timestamps and subtitles. Open source.',
@@ -740,6 +756,8 @@ export const projects: Project[] = [
     name: 'GenogramApp',
     year: '2026',
     kind: { es: 'A medida · Para una estudiante de Psicología', en: 'Custom build · For a psychology student' },
+    group: 'clients',
+    short: { es: 'A medida', en: 'Custom build' },
     tagline: {
       es: 'Genogramas que se dibujan solos: escribes, dictas o fotografías las hojas de clase y la app arma el mapa de la familia.',
       en: 'Genograms that draw themselves: type, dictate or photograph your class notes and the app builds the family map.',
@@ -792,6 +810,8 @@ export const projects: Project[] = [
     name: 'rOS',
     year: '2026',
     kind: { es: 'Proyecto personal · Linux', en: 'Personal project · Linux' },
+    group: 'own',
+    short: { es: 'Linux', en: 'Linux' },
     tagline: { es: 'Mi propio flavor de Arch, en uso diario y en camino a ser una distro.', en: 'My own flavor of Arch, daily-driven and on its way to becoming a distro.' },
     problem: {
       es: 'No es una ISO: es una capa de escritorio propia, versionada y reversible sobre Archcraft/Arch que convierte una instalación en rOS — con identidad, arranque, escritorio y herramientas propias. La meta: que sea una distro real, instalable.',
@@ -827,6 +847,7 @@ export const projects: Project[] = [
     name: 'Adsie',
     year: '2023 – 2025',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Red de anuncios que conecta negocios locales, clientes e influencers en Florida.', en: 'Ads network connecting local businesses, customers and influencers in Florida.' },
     problem: {
       es: 'Empezó como una app donde los dueños de negocios publican anuncios, eventos y cupones para sus clientes. A mitad de camino sumó un marketplace para que los negocios contraten influencers.',
@@ -853,6 +874,7 @@ export const projects: Project[] = [
     name: 'Bite',
     year: '2025',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'SaaS de menú digital y pedidos para restaurantes.', en: 'Digital menu and ordering SaaS for restaurants.' },
     problem: {
       es: 'Menú móvil multi-tenant para restaurantes de Cochabamba: el cliente pide desde la mesa escaneando un QR.',
@@ -879,6 +901,7 @@ export const projects: Project[] = [
     name: 'One Life Fitness',
     year: '2023 – 2025', // empezó en 2023, se pausó y se retomó en 2025
     kind: WANT,
+    group: 'want',
     tagline: { es: 'App móvil para los socios de un gimnasio.', en: 'Mobile app for gym members.' },
     role: { es: 'Todo el frontend de la app en React Native.', en: 'The entire React Native app frontend.' },
     problem: {
@@ -905,6 +928,7 @@ export const projects: Project[] = [
     name: 'OneHand',
     year: '2023',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Gestión de citas para un centro de fisioterapia.', en: 'Appointment management for a physiotherapy center.' },
     role: { es: 'Todo el frontend de la app en React Native.', en: 'The entire React Native app frontend.' },
     problem: {
@@ -931,6 +955,7 @@ export const projects: Project[] = [
     name: 'LYNX Bolivia',
     year: '2022', // de los primeros proyectos completados
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Sitio web de una tienda de electrónica y electrodomésticos.', en: 'Website for an electronics and home appliance retailer.' },
     role: { es: 'Desarrollo del sitio en WordPress.', en: 'WordPress site development.' },
     problem: {
@@ -957,6 +982,7 @@ export const projects: Project[] = [
     name: 'Blessd',
     year: '2022',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Red social para iglesias.', en: 'Social network for churches.' },
     role: { es: 'Desarrollo frontend.', en: 'Frontend development.' },
     problem: {
@@ -983,6 +1009,8 @@ export const projects: Project[] = [
     name: 'Canasta',
     year: '2023',
     kind: { es: 'Hackatón Hackacom 2023 · Participante', en: 'Hackacom 2023 hackathon · Participant' },
+    group: 'own',
+    short: { es: 'Hackatón', en: 'Hackathon' },
     tagline: {
       es: 'Reportes ciudadanos y voluntarios para arreglar la ciudad.',
       en: 'Citizen reports and volunteers to fix the city.',
@@ -1012,6 +1040,8 @@ export const projects: Project[] = [
     name: 'EKO',
     year: '2025',
     kind: { es: 'Freelance · Emprendimiento', en: 'Freelance · Small business' },
+    group: 'clients',
+    short: { es: 'Freelance', en: 'Freelance' },
     tagline: { es: 'Tienda en línea y catálogo de productos para un emprendimiento.', en: 'Online store and product catalog for a small business.' },
     problem: {
       es: 'Tienda en línea completa: catálogo, búsqueda difusa, carrito, cupones, órdenes y panel de administración.',

@@ -118,7 +118,10 @@ CLAUDE.md             ← instrucciones cortas para Claude Code (local o nube)
 - Cada texto traducible es `{ es: '…', en: '…' }`.
 - **Experiencia** → array `experience`. `cv: true` = aparece en el CV.
 - **Proyectos** → array `projects`:
-  - `featured: true` → tarjeta grande en la galería horizontal. `false` → lista de abajo.
+  - `featured: true` → tarjeta grande en la galería horizontal. `false` → lista de abajo, agrupada por `group`:
+    `'clients'` ("Para clientes"), `'own'` ("Propios y open source") y `'want'` (las apps de WANT, juntas en una
+    fila `<details>` desplegable dentro de "Para clientes"). En celular la fila muestra `short` (o "En vivo" si
+    tiene `live`, con un punto del color del proyecto) en vez del `kind` completo.
   - `cv: true` → aparece en el CV (mantener 3–5 para que quepa en 2 páginas).
   - `confidential: true` → muestra "Código privado".
   - `accent` → color del caso de estudio y de la tarjeta.
@@ -550,5 +553,6 @@ Ramas:
 | 2026-10 | `/sobre-mi/` rehecha: foto solo arriba (ya no sticky), capítulos intercalados izquierda/derecha que entran desde su costado (`data-slide`), cada uno con un dibujo principal + 3 secundarios con parallax y un número grande de fondo; flechas a mano entre capítulos. Se quitó "Mi camino" (`journey`). "Fuera del código" se dividió en Cubos de Rubik / Fútbol / Música y podcasts. Pedido de Rossmel. |
 | 2026-10 | Menos proyectos destacados para acortar el scroll: Homelab, Notebook y rOS pasan a la lista normal; quedan AdvAI, CarX, SGPG y Link'u. |
 | 2026-10 | Fase 1 del plan de mejora: dibujos con 1 decimal (portada de 167 a 68 KB comprimida), `npm run verify` revisa las 83 páginas del sitemap a 1440 y 360 px (`--quick` para la muestra), URL y código largos del blog se parten, marcas largas acortadas en transcribe. |
+| 2026-10 | Fase 2 del plan de mejora: lista de proyectos agrupada (Para clientes / Propios y open source), las 6 apps de WANT en una fila desplegable, etiquetas cortas y punto "en vivo" en celular; "En vivo" en celular es una tira deslizable. Portada en celular: de 12.265 a 11.162 px. |
 | 2026-09 | v3.14: dibujo por proyecto y dibujos "en vuelo" en más secciones; CV con "WANT Digital Agency" completo y más proyectos (Homelab, Notebook, Rubik, rOS). Pedido de Rossmel. |
 | 2026-09 | Fuera del sitio: watcher-backend, prototipos v0 (salvo SGPG), proyectos descartados, proyectos personales/regalos. |
