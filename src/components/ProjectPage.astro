@@ -1,6 +1,8 @@
 ---
 import type { Lang, Project } from '../data/profile';
-import { visibleProjects as projects } from '../data/profile';
+import { visibleProjects as projects, profile } from '../data/profile';
+import { stripMarks } from '../data/sketches';
+import { ogImagePath } from '../lib/og';
 import Base from '../layouts/Base.astro';
 import Nav from './Nav.astro';
 import { t, paths } from '../data/i18n';
@@ -16,8 +18,33 @@ const altPath = paths.project(lang === 'es' ? 'en' : 'es', p.slug);
 const idx = projects.findIndex((x) => x.slug === p.slug);
 const next = projects[(idx + 1) % projects.length];
 const posts = await postsForProject(p.slug, lang);
+// Datos estructurados: el proyecto como obra creativa + migas de pan (como en los artículos)
+const url = new URL(paths.project(lang, p.slug), Astro.site);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: p.name,
+  description: stripMarks(p.tagline[lang]),
+  url: url.href,
+  inLanguage: lang,
+  image: new URL(ogImagePath(url.pathname), Astro.site).href,
+  dateCreated: p.year.match(/\d{4}/)?.[0],
+  keywords: p.stack.join(', '),
+  creator: { '@type': 'Person', name: profile.name, url: profile.portfolioUrl },
+  ...(p.live ? { sameAs: `https://${p.live}` } : {}),
+};
+const crumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: profile.name, item: new URL(paths.home(lang), Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: p.name, item: url.href },
+  ],
+};
 ---
 <Base lang={lang} altPath={altPath} title={p.name} description={p.tagline[lang]}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(ld)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(crumbs)} />
   <Nav lang={lang} altPath={altPath} onHome={false} />
   <main style={`--accent:${p.accent}`}>
     <section class="relative flex min-h-[90svh] flex-col justify-end overflow-hidden px-5 pb-12 pt-40 md:px-10">
