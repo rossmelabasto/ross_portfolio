@@ -36,7 +36,7 @@ npm run build        # genera el sitio estático en dist/
 npm run cv:pdf       # genera los PDF del CV (requiere build previo)
 npm run check        # verificación de tipos de Astro/TS
 npm run verify       # tras el build: desborde móvil, marcas sin procesar, errores JS, CV ≤ 2 págs (-- --shots = capturas)
-npm run og           # regenera public/og.png (imagen al compartir el link)
+npm run og           # (tras build) public/og.png + una imagen por proyecto/artículo en public/og/ (-- --all rehace todas)
 npm run icons        # regenera los íconos PNG desde public/favicon.svg
 ```
 
@@ -467,7 +467,7 @@ Flujo diario: push a `main` = producción; push a otra rama / PR = URL de vista 
 
 ⏳ Pendiente
 - [x] Todos los datos confirmados (sin `TODO(confirmar)` pendientes)
-- [x] Imagen para compartir (`public/og.png`, 1200×630, `npm run og`)
+- [x] Imagen para compartir (`public/og.png`, 1200×630, `npm run og`) y una propia por proyecto y artículo (`public/og/`)
 - [ ] Capturas reales de proyectos (las sube Rossmel más adelante; ver "Imágenes de proyectos")
 - [x] Publicado en Cloudflare Pages: portfolio.rossmel.com y cv.rossmel.com (sept. 2026)
 - [x] Formulario de contacto funcionando en producción (Resend verificado con SPF/DKIM/DMARC, Turnstile activo; prueba real llegó a la bandeja de entrada)
@@ -555,5 +555,6 @@ Ramas:
 | 2026-10 | Fase 1 del plan de mejora: dibujos con 1 decimal (portada de 167 a 68 KB comprimida), `npm run verify` revisa las 83 páginas del sitemap a 1440 y 360 px (`--quick` para la muestra), URL y código largos del blog se parten, marcas largas acortadas en transcribe. |
 | 2026-10 | Fase 2 del plan de mejora: lista de proyectos agrupada (Para clientes / Propios y open source), las 6 apps de WANT en una fila desplegable, etiquetas cortas y punto "en vivo" en celular; "En vivo" en celular es una tira deslizable. Portada en celular: de 12.265 a 11.162 px. |
 | 2026-10 | Fase 3 del plan de mejora: portada más corta en celular (de ~14,5 a ~12 pantallas con las fases 2 y 3): márgenes de sección más chicos en celular, titular del Sobre mí más chico, foto un poco menor, el párrafo de Platzi solo en /sobre-mi, "Mi entorno" solo en escritorio y las listas fijas avanzan cada 14 % de pantalla (antes 18 %). |
+| 2026-10 | Fase 4 del plan de mejora: capturas en las fichas (`gallery`: Notebook, Rubik, transcribe, GenogramApp) e imagen para compartir propia por proyecto y artículo (74, en `public/og/`, con el color y el dibujo de cada proyecto; se generan con `npm run og` y se commitean). |
 | 2026-09 | v3.14: dibujo por proyecto y dibujos "en vuelo" en más secciones; CV con "WANT Digital Agency" completo y más proyectos (Homelab, Notebook, Rubik, rOS). Pedido de Rossmel. |
 | 2026-09 | Fuera del sitio: watcher-backend, prototipos v0 (salvo SGPG), proyectos descartados, proyectos personales/regalos. |

@@ -268,6 +268,8 @@ export type Project = {
   learned: Record<Lang, string[]>; // "Lo que aprendí"
   stack: string[];
   links?: { label: string; href: string }[];
+  /** capturas para la ficha (solo datos ficticios o públicos). `src` puede variar por idioma; `w`/`h` = tamaño real (evita saltos al cargar) */
+  gallery?: { src: string | L; alt: L; w: number; h: number }[];
   live?: string; // host público (p. ej. 'rubik.rossmel.com'): botón "Ver en vivo" y sección En vivo
   accent: string; // color del caso de estudio
   /** dibujo a mano que lo representa (src/data/sketches.ts) */
@@ -539,6 +541,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Node.js', 'Express', 'SQLite', 'sqlite-vec', 'FTS5', 'RAG', 'Groq', 'Gemini', 'SSE', 'PWA', 'JavaScript'],
+    gallery: [
+      { src: '/blog/notebook/desktop-dark.webp', w: 1600, h: 1000, alt: { es: 'Un apunte en Notebook: mensajes, una foto del pizarrón transcrita y un mensaje destacado', en: 'A note in Notebook: messages, a transcribed whiteboard photo and a starred message' } },
+      { src: '/blog/notebook/ask-dark.webp', w: 1600, h: 1000, alt: { es: 'Pregunta con la respuesta en vivo y sus fuentes: cada cita lleva al mensaje exacto', en: 'A question with its streaming answer and sources: every citation jumps to the exact message' } },
+      { src: '/blog/notebook/study-light.webp', w: 1600, h: 1000, alt: { es: 'Un quiz generado a partir de los apuntes, con la explicación de la respuesta', en: 'A quiz generated from the notes, with the explanation of the answer' } },
+    ],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_notebook' }],
     live: 'notebook.rossmel.com',
     doodle: 'notebook',
@@ -590,6 +597,9 @@ export const projects: Project[] = [
       ],
     },
     stack: ['JavaScript', 'cubing.js', 'WebAssembly', 'HTML', 'CSS'],
+    gallery: [
+      { src: '/img/projects/rubik/inicio.webp', w: 1440, h: 900, alt: { es: 'Inicio de Rubik: 25 puzzles y 224 algoritmos verificados por simulación, con accesos a aprender, resolver, practicar y timer', en: 'Rubik home: 25 puzzles and 224 algorithms verified by simulation, with shortcuts to learn, solve, practice and timer' } },
+    ],
     live: 'rubik.rossmel.com',
     doodle: 'cube',
     accent: '#ff5f5f',
@@ -744,6 +754,9 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Python', 'faster-whisper', 'Whisper', 'ffmpeg', 'questionary', 'Rich', 'pytest', 'GitHub Actions'],
+    gallery: [
+      { src: { es: '/blog/transcribe/demo-es.gif', en: '/blog/transcribe/demo-en.gif' }, w: 1102, h: 630, alt: { es: 'transcribe en acción: eligiendo dos audios, detectando el idioma de cada uno y guardando .txt y .srt', en: 'transcribe in action: picking two files, detecting each one\'s language and saving .txt and .srt' } },
+    ],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_transcribe' }],
     doodle: 'mic',
     accent: '#cba6f7',
@@ -798,6 +811,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor', 'Android', 'SVG', 'jsPDF', 'Python', 'Docker', 'Gemini', 'Groq', 'Tesseract'],
+    gallery: [
+      { src: '/blog/genogramapp/genograma-movil.webp', w: 540, h: 802, alt: { es: 'Genograma de 17 personas en el teléfono (familia inventada): tres generaciones, parejas, hogares y relaciones', en: 'A 17-person genogram on the phone (made-up family): three generations, couples, households and relationships' } },
+      { src: '/blog/genogramapp/escritorio.webp', w: 1440, h: 900, alt: { es: 'La versión web de escritorio con una familia extensa de 28 personas (inventada)', en: 'The desktop web version with an extended family of 28 people (made up)' } },
+      { src: '/blog/genogramapp/hoja-leyenda.webp', w: 620, h: 857, alt: { es: 'Vista de hoja para entregar: el genograma con leyenda de los símbolos usados', en: 'Sheet view for handing in: the genogram with a legend of the symbols in use' } },
+    ],
     doodle: 'genogram',
     accent: '#ffb6d5',
     confidential: true, // repo privado; no se enlaza la web ni se nombra a la usuaria

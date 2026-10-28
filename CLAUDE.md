@@ -8,10 +8,13 @@ Portafolio + CV de Rossmel Abasto. Idioma de trabajo: **español** (el sitio es 
 - `npm run build` — build estático a `dist/`
 - `npm run cv:pdf` — PDFs del CV (después de `build`); usa Chromium del sistema o `$CHROMIUM_PATH`
 - `npm run check` — tipos
+- `npm run og` — imágenes para compartir (después de `build`): `public/og.png` y una por proyecto/artículo en `public/og/` (solo las que faltan; `-- --all` rehace todas)
 - `npm run verify` — tras el build: TODAS las páginas del sitemap a 1440 y 360 px (desborde, marcas sin procesar, errores JS) y CV ≤ 2 páginas; `-- --quick` = muestra de 14 páginas
 
 Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run verify` sin errores, y si cambió contenido del CV,
 `npm run cv:pdf` y commitear los PDF de `public/cv/`.
+Si se agregó un proyecto o un artículo (o cambió su título): `npm run build && npm run og` y commitear `public/og/`
+(sin eso la página usa la imagen general; con `-- --all` si cambió un título).
 
 ## Reglas
 - **Contenido solo en `src/data/profile.ts`** (textos `{ es, en }`). Nunca hardcodear textos de
@@ -111,6 +114,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.35: `sketchPaths`/`trailPaths` recortan las coordenadas de rough.js a 1 decimal (`trim` en sketches.ts; −60 % de HTML en la portada). verify recorre todo el sitemap. `.prose a` y el código en línea usan `overflow-wrap: anywhere`. Regla: marcas ==…==/((…)) de 2–4 palabras, también en profile.ts (una larga en un `grid` ensancha toda la columna en celular).
 - v3.36: campos `group` ('want' | 'clients' | 'own', obligatorio) y `short` (etiqueta corta para celular) en cada proyecto. Lista de no destacados en `ProjectRow.astro` (prop `nested` = fila dentro del `<details data-want>`, sin `data-reveal`/`data-focus-item` porque está oculta). Todo `<details>` hace `ScrollTrigger.refresh()` al abrirse/cerrarse (animations.ts). "En vivo" en celular = tira `overflow-x-auto` con snap (tarjetas al 80 %); desde `md:` grilla.
 - v3.37: portada más corta en celular: secciones con `py-16` (antes `py-20`/`py-32`) solo en celular, titular del Sobre mí `text-3xl`, foto `max-w-[18rem]`; `profile.about` = versión corta de la portada (el párrafo de Platzi/Derecho vive solo en `story` → /sobre-mi); "Mi entorno" de Cómo trabajo oculto en celular (repite Stack); `initStack` avanza cada 14 % de pantalla. Medido con animaciones a 390 px: ~10.050 px (≈12 pantallas).
+- v3.38: campo `gallery` en proyectos (`src` puede ser `{ es, en }`; `w`/`h` reales) → tira "Capturas" en la ficha, después del hero. Hoy: notebook, rubik (captura del sitio en vivo en `public/img/projects/rubik/`), transcribe (GIF por idioma) y genogramapp; las de blog se reutilizan. Imágenes para compartir por página: `src/pages/og-pages.json.ts` (datos) + `scripts/build-og.mjs` → `public/og/<ruta>.jpg` (se commitean, como los PDF del CV); `src/lib/og.ts` (`ogImagePath`) elige la propia o `/og.png` en el build (Base.astro y JSON-LD de BlogPost).
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.

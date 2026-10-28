@@ -48,7 +48,7 @@ export const ui = {
         close: 'Cerrar',
       },
     },
-    project: { problem: 'El problema', role: 'Mi rol', highlights: 'Lo destacado', learned: 'Lo que aprendí', stack: 'Stack', back: 'Volver', next: 'Siguiente proyecto' },
+    project: { problem: 'El problema', role: 'Mi rol', highlights: 'Lo destacado', learned: 'Lo que aprendí', stack: 'Stack', back: 'Volver', next: 'Siguiente proyecto', gallery: 'Capturas' },
     live: { kicker: 'En vivo', title: 'Corriendo en mi servidor', body: 'Proyectos que corren en mi homelab, bajo mi dominio. Entra a cada uno para ver cómo funciona.', view: 'Ver en vivo', details: 'Ver detalles' },
     footer: 'Hecho con Astro y mucho café.',
     blog: {
@@ -137,7 +137,7 @@ export const ui = {
         close: 'Close',
       },
     },
-    project: { problem: 'The problem', role: 'My role', highlights: 'Highlights', learned: 'What I learned', stack: 'Stack', back: 'Back', next: 'Next project' },
+    project: { problem: 'The problem', role: 'My role', highlights: 'Highlights', learned: 'What I learned', stack: 'Stack', back: 'Back', next: 'Next project', gallery: 'Screenshots' },
     live: { kicker: 'Live', title: 'Running on my server', body: 'Projects running on my homelab, under my own domain. Open each one to see how it works.', view: 'See it live', details: 'See details' },
     footer: 'Built with Astro and lots of coffee.',
     blog: {
