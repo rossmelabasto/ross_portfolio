@@ -10,7 +10,7 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const s = t(lang);
 ---
-<section id="workflow" class="relative overflow-hidden px-5 py-20 md:px-10 md:py-32">
+<section id="workflow" class="relative overflow-hidden px-5 py-16 md:px-10 md:py-32">
   <SketchFlight icon="ship" seed={111} variant={0} tilt={20} class="pointer-events-none absolute right-4 h-auto w-[48vw] max-w-[26rem] text-accent opacity-80 md:right-10 top-20" />
   <p class="kicker mb-10">{s.workflow.kicker}</p>
   <h2 data-split class="display max-w-5xl text-5xl font-bold md:text-8xl">{s.workflow.title}</h2>
@@ -43,7 +43,7 @@ const s = t(lang);
       </li>
     ))}
   </ol>
-  <div class="mt-10 flex flex-wrap items-center gap-2" data-reveal>
+  <div class="mt-10 hidden flex-wrap items-center gap-2 md:flex" data-reveal>{/* en celular no: repite herramientas que ya están en Stack */}
     <span class="kicker mr-2">{s.workflow.setup}</span>
     {setup.map((x) => <span class="rounded-full border border-line px-3 py-1 font-mono text-xs">{x}</span>)}
   </div>

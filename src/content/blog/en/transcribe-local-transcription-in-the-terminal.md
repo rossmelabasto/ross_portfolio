@@ -26,7 +26,7 @@ faster-whisper reads audio through PyAV, and the PyAV version pip installed didn
 
 ## Do I need a bigger model?
 
-With the `small` model on my laptop's CPU, a 30-second voice note takes about 3 seconds: ==roughly 10× faster than real time==. The transcript was right except for one affectionate word said very fast at the start.
+With the `small` model on my laptop's CPU, a 30-second voice note takes about 3 seconds: roughly ==10× faster== than real time. The transcript was right except for one affectionate word said very fast at the start.
 
 The temptation was to download a bigger model. I compared first, and the large model (`large-v3`, the same one I had used in the cloud) **got that word wrong too**. I also tried giving it context with expected words: it fixed two others but swallowed the opening greeting. Conclusion: for voice notes `small` is enough, and a 3 GB download wasn't going to fix that case.
 

@@ -13,7 +13,7 @@ export const ui = {
     },
     about: { kicker: '01 — Sobre mí', me: 'yo', more: 'Conoce mi historia', pageKicker: 'Sobre mí', pageTitle: 'Mi historia', pageIntro: 'De estudiar Derecho en plena pandemia a construir productos, mi propio flavor de Arch y un homelab. Así llegué hasta aquí.', essay: 'Más sobre cómo uso la IA: programar antes y después de la IA', back: 'Volver al inicio', cta: '¿Hablamos?' },
     experience: { kicker: '02 — Experiencia', present: 'Actualidad', now: 'hoy', fullCv: 'Ver el detalle en mi CV' },
-    work: { kicker: '03 — Proyectos', swipe: 'sigue bajando', title: 'Trabajo seleccionado', view: 'Ver caso', private: 'Código privado', scrollRegion: 'Proyectos destacados, se puede desplazar' },
+    work: { kicker: '03 — Proyectos', swipe: 'sigue bajando', title: 'Trabajo seleccionado', view: 'Ver caso', private: 'Código privado', scrollRegion: 'Proyectos destacados, se puede desplazar', clients: 'Para clientes', own: 'Propios y open source', live: 'En vivo', wantKind: 'Agencia', wantBody: 'Apps para clientes de Bolivia y EE. UU.:', apps: 'apps' },
     stack: { kicker: '04 — Stack' },
     workflow: { kicker: '05 — Cómo trabajo', title: 'Del problema a producción.', setup: 'Mi entorno' },
     contact: {
@@ -48,7 +48,7 @@ export const ui = {
         close: 'Cerrar',
       },
     },
-    project: { problem: 'El problema', role: 'Mi rol', highlights: 'Lo destacado', learned: 'Lo que aprendí', stack: 'Stack', back: 'Volver', next: 'Siguiente proyecto' },
+    project: { problem: 'El problema', role: 'Mi rol', highlights: 'Lo destacado', learned: 'Lo que aprendí', stack: 'Stack', back: 'Volver', next: 'Siguiente proyecto', gallery: 'Capturas' },
     live: { kicker: 'En vivo', title: 'Corriendo en mi servidor', body: 'Proyectos que corren en mi homelab, bajo mi dominio. Entra a cada uno para ver cómo funciona.', view: 'Ver en vivo', details: 'Ver detalles' },
     footer: 'Hecho con Astro y mucho café.',
     blog: {
@@ -102,7 +102,7 @@ export const ui = {
     },
     about: { kicker: '01 — About', me: 'me', more: 'Read my story', pageKicker: 'About', pageTitle: 'My story', pageIntro: 'From studying law in the middle of the pandemic to building products, my own flavor of Arch and a homelab. This is how I got here.', essay: 'More on how I use AI: coding before and after AI', back: 'Back home', cta: 'Let\'s talk?' },
     experience: { kicker: '02 — Experience', present: 'Present', now: 'now', fullCv: 'See the full details in my resume' },
-    work: { kicker: '03 — Work', swipe: 'keep scrolling', title: 'Selected work', view: 'View case', private: 'Private code', scrollRegion: 'Featured projects, scrollable' },
+    work: { kicker: '03 — Work', swipe: 'keep scrolling', title: 'Selected work', view: 'View case', private: 'Private code', scrollRegion: 'Featured projects, scrollable', clients: 'Client work', own: 'Personal & open source', live: 'Live', wantKind: 'Agency', wantBody: 'Apps for clients in Bolivia and the US:', apps: 'apps' },
     stack: { kicker: '04 — Stack' },
     workflow: { kicker: '05 — How I work', title: 'From problem to production.', setup: 'My setup' },
     contact: {
@@ -137,7 +137,7 @@ export const ui = {
         close: 'Close',
       },
     },
-    project: { problem: 'The problem', role: 'My role', highlights: 'Highlights', learned: 'What I learned', stack: 'Stack', back: 'Back', next: 'Next project' },
+    project: { problem: 'The problem', role: 'My role', highlights: 'Highlights', learned: 'What I learned', stack: 'Stack', back: 'Back', next: 'Next project', gallery: 'Screenshots' },
     live: { kicker: 'Live', title: 'Running on my server', body: 'Projects running on my homelab, under my own domain. Open each one to see how it works.', view: 'See it live', details: 'See details' },
     footer: 'Built with Astro and lots of coffee.',
     blog: {

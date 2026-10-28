@@ -1,0 +1,44 @@
+---
+import type { Lang, Project } from '../data/profile';
+import { t, paths } from '../data/i18n';
+import Sketch from './Sketch.astro';
+/**
+ * Fila de la lista de proyectos (no destacados). En celular: nombre + etiqueta corta (`short`,
+ * o "En vivo" si tiene `live`); en escritorio además la frase y el `kind` completo.
+ * `nested`: fila dentro del grupo desplegable de WANT (más chica, con sangría, solo el año y sin
+ * animaciones de scroll, porque está oculta hasta que se abre).
+ */
+interface Props { p: Project; lang: Lang; seed: number; nested?: boolean }
+const { p, lang, seed, nested = false } = Astro.props;
+const s = t(lang);
+const short = p.live ? s.work.live : (p.short ?? p.kind)[lang];
+---
+<li class="border-b border-line" data-reveal={nested ? undefined : ''}>
+  <a
+    href={paths.project(lang, p.slug)}
+    data-hover
+    data-draw-host
+    data-focus-item={nested ? undefined : ''}
+    class:list={[
+      'group flex origin-left flex-col gap-1 transition-colors hover:text-accent md:grid md:grid-cols-12 md:items-baseline md:gap-4',
+      nested ? 'py-3 md:py-4' : 'py-4 md:py-6',
+    ]}
+  >
+    <span class:list={['display flex items-center gap-3 font-semibold md:col-span-4 md:gap-4', nested ? 'pl-4 text-xl md:pl-8 md:text-3xl' : 'text-2xl md:text-5xl']}>
+      {p.name}
+      {p.doodle && <Sketch name={p.doodle} seed={seed} class={nested ? 'h-6 w-6 shrink-0 text-accent md:h-8 md:w-8' : 'h-7 w-7 shrink-0 text-accent md:h-11 md:w-11'} />}
+    </span>
+    <span class="hidden text-muted md:col-span-5 md:block">{p.tagline[lang]}</span>
+    <span class="kicker flex items-center gap-2 md:col-span-3 md:justify-end md:text-right">
+      {p.live && <span class="h-1.5 w-1.5 shrink-0 rounded-full" style={`background:${p.accent}`} aria-hidden="true"></span>}
+      {nested ? (
+        <span class="pl-4 md:pl-0">{p.year}</span>
+      ) : (
+        <>
+          <span class="md:hidden">{short} · {p.year}</span>
+          <span class="hidden md:inline">{p.kind[lang]} · {p.year}</span>
+        </>
+      )}
+    </span>
+  </a>
+</li>

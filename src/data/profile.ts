@@ -46,16 +46,15 @@ export const profile = {
   } as L,
 
   /** "Sobre mí" de la home: una frase grande y un resumen corto. La historia completa va en `story` (/sobre-mi/). */
+  /** Sobre mí de la portada (versión corta: la historia completa, con Platzi y Derecho, está en `story` → /sobre-mi). */
   about: {
     es: [
       'Empecé a programar de forma autodidacta en plena pandemia, y desde entonces no paré: cursos, documentación, prueba y error, y muchas noches de “¿por qué esto no funciona?”.',
-      'Estudiaba Derecho cuando descubrí la programación gracias a Platzi, y supe que esa era mi vocación. Aprendí con cursos y creadores de YouTube, siguiendo una sola regla: ==nunca parar de aprender==.',
       'Con una buena base de desarrollo web entré a WANT, donde pasé más de tres años construyendo ==productos reales== para clientes de Bolivia y EE. UU. Hoy trabajo de forma independiente mientras termino Ingeniería de Sistemas, y uso la IA para llegar más lejos con lo que ya sé hacer.',
       'Y vivo en Linux: probé muchas distros, pero ((Arch)) siempre fue especial. Uso a diario rOS, mi propio flavor de Arch, y tengo un homelab en casa que cuida un agente de IA.',
     ],
     en: [
       'I taught myself to code in the middle of the pandemic, and I haven\'t stopped since: courses, docs, trial and error, and many “why isn\'t this working?” nights.',
-      'I was studying law when I discovered programming through Platzi, and I knew it was my calling. I learned from courses and YouTube creators, following one rule: ==never stop learning==.',
       'With a solid web development foundation I joined WANT, where I spent 3+ years building ==real products== for clients in Bolivia and the US. Today I work independently while finishing my Systems Engineering degree, and I use AI to go further with what I already know how to do.',
       'And I live in Linux: I\'ve tried many distros, but ((Arch)) was always special. I daily-drive rOS, my own flavor of Arch, and run a homelab at home looked after by an AI agent.',
     ],
@@ -258,6 +257,10 @@ export type Project = {
   name: string;
   year: string;
   kind: L; // "Cliente · WANT", "Proyecto de grado", etc.
+  /** grupo en la lista de proyectos: 'want' = fila desplegable de WANT, 'clients' = para clientes, 'own' = propios */
+  group: 'want' | 'clients' | 'own';
+  /** etiqueta corta para la lista en celular (si falta se usa `kind`; los que tienen `live` dicen "En vivo") */
+  short?: L;
   tagline: L;
   problem: L;
   role: L;
@@ -265,6 +268,8 @@ export type Project = {
   learned: Record<Lang, string[]>; // "Lo que aprendí"
   stack: string[];
   links?: { label: string; href: string }[];
+  /** capturas para la ficha (solo datos ficticios o públicos). `src` puede variar por idioma; `w`/`h` = tamaño real (evita saltos al cargar) */
+  gallery?: { src: string | L; alt: L; w: number; h: number }[];
   live?: string; // host público (p. ej. 'rubik.rossmel.com'): botón "Ver en vivo" y sección En vivo
   accent: string; // color del caso de estudio
   /** dibujo a mano que lo representa (src/data/sketches.ts) */
@@ -285,6 +290,7 @@ export const projects: Project[] = [
     name: 'AdvAI',
     year: '2026',
     kind: { es: 'Proyecto de grado · UDABOL', en: 'Capstone · UDABOL' },
+    group: 'own',
     tagline: {
       es: 'Auditoría legal de contratos con IA y citas verificables.',
       en: 'AI legal contract auditing with verifiable citations.',
@@ -326,6 +332,7 @@ export const projects: Project[] = [
     name: 'CarX',
     year: '2023 – 2025',
     kind: { es: 'GeekLabs · vía WANT Digital Agency', en: 'GeekLabs · via WANT Digital Agency' },
+    group: 'clients',
     tagline: {
       es: 'SaaS multi-tenant para talleres mecánicos (antes Vulcano).',
       en: 'Multi-tenant SaaS for auto repair shops (formerly Vulcano).',
@@ -368,6 +375,7 @@ export const projects: Project[] = [
     name: 'SGPG',
     year: '2026',
     kind: { es: 'Universidad · UDABOL', en: 'University · UDABOL' },
+    group: 'own',
     tagline: {
       es: 'Sistema de gestión de proyectos de grado para mi universidad.',
       en: 'Thesis project management system for my university.',
@@ -407,6 +415,7 @@ export const projects: Project[] = [
     name: "Link'u",
     year: '2026',
     kind: { es: 'Cliente · Proyecto pagado', en: 'Client · Paid project' },
+    group: 'clients',
     tagline: {
       es: 'App de escritorio offline-first para el cobro de agua potable de una comunidad.',
       en: 'Offline-first desktop app for a rural community\'s water billing.',
@@ -446,6 +455,8 @@ export const projects: Project[] = [
     name: 'Homelab',
     year: '2026',
     kind: { es: 'Proyecto personal · Infraestructura', en: 'Personal project · Infrastructure' },
+    group: 'own',
+    short: { es: 'Infraestructura', en: 'Infrastructure' },
     tagline: {
       es: 'Servidor casero 24/7 con diez servicios públicos y un agente de IA (OpenClaw) que lo opera.',
       en: 'A 24/7 home server running ten public services, operated by an AI agent (OpenClaw).',
@@ -486,6 +497,7 @@ export const projects: Project[] = [
     name: 'Notebook',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Apuntes como un chat contigo mismo, con memoria: les preguntas, los buscas y estudias con flashcards. Open source.',
       en: 'Notes as a chat with yourself, with memory: ask them, search them and study with flashcards. Open source.',
@@ -529,6 +541,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Node.js', 'Express', 'SQLite', 'sqlite-vec', 'FTS5', 'RAG', 'Groq', 'Gemini', 'SSE', 'PWA', 'JavaScript'],
+    gallery: [
+      { src: '/blog/notebook/desktop-dark.webp', w: 1600, h: 1000, alt: { es: 'Un apunte en Notebook: mensajes, una foto del pizarrón transcrita y un mensaje destacado', en: 'A note in Notebook: messages, a transcribed whiteboard photo and a starred message' } },
+      { src: '/blog/notebook/ask-dark.webp', w: 1600, h: 1000, alt: { es: 'Pregunta con la respuesta en vivo y sus fuentes: cada cita lleva al mensaje exacto', en: 'A question with its streaming answer and sources: every citation jumps to the exact message' } },
+      { src: '/blog/notebook/study-light.webp', w: 1600, h: 1000, alt: { es: 'Un quiz generado a partir de los apuntes, con la explicación de la respuesta', en: 'A quiz generated from the notes, with the explanation of the answer' } },
+    ],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_notebook' }],
     live: 'notebook.rossmel.com',
     doodle: 'notebook',
@@ -541,6 +558,7 @@ export const projects: Project[] = [
     name: 'Rubik',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Para practicar cubo de Rubik y otros puzzles, con mezclas oficiales y visor 3D.',
       en: 'Practice the Rubik\'s cube and other puzzles, with official scrambles and a 3D viewer.',
@@ -579,6 +597,9 @@ export const projects: Project[] = [
       ],
     },
     stack: ['JavaScript', 'cubing.js', 'WebAssembly', 'HTML', 'CSS'],
+    gallery: [
+      { src: '/img/projects/rubik/inicio.webp', w: 1440, h: 900, alt: { es: 'Inicio de Rubik: 25 puzzles y 224 algoritmos verificados por simulación, con accesos a aprender, resolver, practicar y timer', en: 'Rubik home: 25 puzzles and 224 algorithms verified by simulation, with shortcuts to learn, solve, practice and timer' } },
+    ],
     live: 'rubik.rossmel.com',
     doodle: 'cube',
     accent: '#ff5f5f',
@@ -590,6 +611,7 @@ export const projects: Project[] = [
     name: 'Selflix',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Mi propio "Netflix": un media center con Jellyfin en mi servidor casero.',
       en: 'My own "Netflix": a Jellyfin media center on my home server.',
@@ -639,6 +661,7 @@ export const projects: Project[] = [
     name: 'Manga',
     year: '2026',
     kind: SELF_HOSTED,
+    group: 'own',
     tagline: {
       es: 'Mi propio lector de mangas: biblioteca compartida, progreso por persona y app en el celular.',
       en: 'My own manga reader: shared library, per-person progress and a phone app.',
@@ -688,6 +711,8 @@ export const projects: Project[] = [
     name: 'transcribe',
     year: '2026',
     kind: { es: 'Proyecto personal · Open source', en: 'Personal project · Open source' },
+    group: 'own',
+    short: { es: 'Open source', en: 'Open source' },
     tagline: {
       es: 'Transcripción de audio y video en la terminal, local y sin internet: selector interactivo, marcas de tiempo y subtítulos. Open source.',
       en: 'Audio and video transcription in the terminal, local and offline: interactive picker, timestamps and subtitles. Open source.',
@@ -703,14 +728,14 @@ export const projects: Project[] = [
     highlights: {
       es: [
         'Selector interactivo: tus Descargas de lo más nuevo a lo más viejo, con duración y antigüedad; filtro escribiendo, selección múltiple y búsqueda en toda la máquina (carpeta personal + discos montados) con fd.',
-        'Rápido sin GPU: el modelo small de Whisper transcribe ==unas 10 veces más rápido que el tiempo real== en la CPU de una laptop; una nota de voz de 30 s tarda ~3 s.',
+        'Rápido sin GPU: el modelo small de Whisper transcribe unas ==10 veces más rápido== que el tiempo real en la CPU de una laptop; una nota de voz de 30 s tarda ~3 s.',
         'La GPU solo si de verdad funciona: antes de usarla comprueba que carguen las librerías de CUDA y, si falla a mitad de camino, sigue en la CPU sin romperse.',
         'Lee cualquier formato con ffmpeg (notas de voz, mp3, el audio de un video) y así evita un choque de versiones entre faster-whisper y PyAV.',
         'Interfaz en español o inglés según el sistema, salida en pantalla, .txt y .srt, 29 tests con un modelo falso y CI en GitHub Actions con tres versiones de Python.',
       ],
       en: [
         'Interactive picker: your Downloads newest first, with duration and age; type to filter, multi-select and search the whole machine (home folder + mounted drives) with fd.',
-        'Fast without a GPU: Whisper\'s small model transcribes ==about 10× faster than real time== on a laptop CPU; a 30-second voice note takes ~3 s.',
+        'Fast without a GPU: Whisper\'s small model transcribes about ==10× faster== than real time on a laptop CPU; a 30-second voice note takes ~3 s.',
         'GPU only when it really works: before using it, it checks that the CUDA libraries load, and if it fails mid-way it carries on with the CPU instead of crashing.',
         'Reads any format through ffmpeg (voice notes, mp3, the audio of a video), which also avoids a version clash between faster-whisper and PyAV.',
         'Spanish or English interface following the system, output to screen, .txt and .srt, 29 tests with a fake model and GitHub Actions CI on three Python versions.',
@@ -729,6 +754,9 @@ export const projects: Project[] = [
       ],
     },
     stack: ['Python', 'faster-whisper', 'Whisper', 'ffmpeg', 'questionary', 'Rich', 'pytest', 'GitHub Actions'],
+    gallery: [
+      { src: { es: '/blog/transcribe/demo-es.gif', en: '/blog/transcribe/demo-en.gif' }, w: 1102, h: 630, alt: { es: 'transcribe en acción: eligiendo dos audios, detectando el idioma de cada uno y guardando .txt y .srt', en: 'transcribe in action: picking two files, detecting each one\'s language and saving .txt and .srt' } },
+    ],
     links: [{ label: 'GitHub', href: 'https://github.com/rossmelabasto/ross_transcribe' }],
     doodle: 'mic',
     accent: '#cba6f7',
@@ -740,6 +768,8 @@ export const projects: Project[] = [
     name: 'GenogramApp',
     year: '2026',
     kind: { es: 'A medida · Para una estudiante de Psicología', en: 'Custom build · For a psychology student' },
+    group: 'clients',
+    short: { es: 'A medida', en: 'Custom build' },
     tagline: {
       es: 'Genogramas que se dibujan solos: escribes, dictas o fotografías las hojas de clase y la app arma el mapa de la familia.',
       en: 'Genograms that draw themselves: type, dictate or photograph your class notes and the app builds the family map.',
@@ -781,6 +811,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ['React', 'TypeScript', 'Vite', 'Capacitor', 'Android', 'SVG', 'jsPDF', 'Python', 'Docker', 'Gemini', 'Groq', 'Tesseract'],
+    gallery: [
+      { src: '/blog/genogramapp/genograma-movil.webp', w: 540, h: 802, alt: { es: 'Genograma de 17 personas en el teléfono (familia inventada): tres generaciones, parejas, hogares y relaciones', en: 'A 17-person genogram on the phone (made-up family): three generations, couples, households and relationships' } },
+      { src: '/blog/genogramapp/escritorio.webp', w: 1440, h: 900, alt: { es: 'La versión web de escritorio con una familia extensa de 28 personas (inventada)', en: 'The desktop web version with an extended family of 28 people (made up)' } },
+      { src: '/blog/genogramapp/hoja-leyenda.webp', w: 620, h: 857, alt: { es: 'Vista de hoja para entregar: el genograma con leyenda de los símbolos usados', en: 'Sheet view for handing in: the genogram with a legend of the symbols in use' } },
+    ],
     doodle: 'genogram',
     accent: '#ffb6d5',
     confidential: true, // repo privado; no se enlaza la web ni se nombra a la usuaria
@@ -792,6 +827,8 @@ export const projects: Project[] = [
     name: 'rOS',
     year: '2026',
     kind: { es: 'Proyecto personal · Linux', en: 'Personal project · Linux' },
+    group: 'own',
+    short: { es: 'Linux', en: 'Linux' },
     tagline: { es: 'Mi propio flavor de Arch, en uso diario y en camino a ser una distro.', en: 'My own flavor of Arch, daily-driven and on its way to becoming a distro.' },
     problem: {
       es: 'No es una ISO: es una capa de escritorio propia, versionada y reversible sobre Archcraft/Arch que convierte una instalación en rOS — con identidad, arranque, escritorio y herramientas propias. La meta: que sea una distro real, instalable.',
@@ -827,6 +864,7 @@ export const projects: Project[] = [
     name: 'Adsie',
     year: '2023 – 2025',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Red de anuncios que conecta negocios locales, clientes e influencers en Florida.', en: 'Ads network connecting local businesses, customers and influencers in Florida.' },
     problem: {
       es: 'Empezó como una app donde los dueños de negocios publican anuncios, eventos y cupones para sus clientes. A mitad de camino sumó un marketplace para que los negocios contraten influencers.',
@@ -853,6 +891,7 @@ export const projects: Project[] = [
     name: 'Bite',
     year: '2025',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'SaaS de menú digital y pedidos para restaurantes.', en: 'Digital menu and ordering SaaS for restaurants.' },
     problem: {
       es: 'Menú móvil multi-tenant para restaurantes de Cochabamba: el cliente pide desde la mesa escaneando un QR.',
@@ -879,6 +918,7 @@ export const projects: Project[] = [
     name: 'One Life Fitness',
     year: '2023 – 2025', // empezó en 2023, se pausó y se retomó en 2025
     kind: WANT,
+    group: 'want',
     tagline: { es: 'App móvil para los socios de un gimnasio.', en: 'Mobile app for gym members.' },
     role: { es: 'Todo el frontend de la app en React Native.', en: 'The entire React Native app frontend.' },
     problem: {
@@ -905,6 +945,7 @@ export const projects: Project[] = [
     name: 'OneHand',
     year: '2023',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Gestión de citas para un centro de fisioterapia.', en: 'Appointment management for a physiotherapy center.' },
     role: { es: 'Todo el frontend de la app en React Native.', en: 'The entire React Native app frontend.' },
     problem: {
@@ -931,6 +972,7 @@ export const projects: Project[] = [
     name: 'LYNX Bolivia',
     year: '2022', // de los primeros proyectos completados
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Sitio web de una tienda de electrónica y electrodomésticos.', en: 'Website for an electronics and home appliance retailer.' },
     role: { es: 'Desarrollo del sitio en WordPress.', en: 'WordPress site development.' },
     problem: {
@@ -957,6 +999,7 @@ export const projects: Project[] = [
     name: 'Blessd',
     year: '2022',
     kind: WANT,
+    group: 'want',
     tagline: { es: 'Red social para iglesias.', en: 'Social network for churches.' },
     role: { es: 'Desarrollo frontend.', en: 'Frontend development.' },
     problem: {
@@ -983,6 +1026,8 @@ export const projects: Project[] = [
     name: 'Canasta',
     year: '2023',
     kind: { es: 'Hackatón Hackacom 2023 · Participante', en: 'Hackacom 2023 hackathon · Participant' },
+    group: 'own',
+    short: { es: 'Hackatón', en: 'Hackathon' },
     tagline: {
       es: 'Reportes ciudadanos y voluntarios para arreglar la ciudad.',
       en: 'Citizen reports and volunteers to fix the city.',
@@ -1012,6 +1057,8 @@ export const projects: Project[] = [
     name: 'EKO',
     year: '2025',
     kind: { es: 'Freelance · Emprendimiento', en: 'Freelance · Small business' },
+    group: 'clients',
+    short: { es: 'Freelance', en: 'Freelance' },
     tagline: { es: 'Tienda en línea y catálogo de productos para un emprendimiento.', en: 'Online store and product catalog for a small business.' },
     problem: {
       es: 'Tienda en línea completa: catálogo, búsqueda difusa, carrito, cupones, órdenes y panel de administración.',

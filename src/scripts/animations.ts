@@ -283,7 +283,8 @@ function initHorizontal() {
 
 /* ---------------- Listas fijas y enfoque (móvil) ---------------- */
 /**
- * [data-stack]: en celular la lista queda fija y el scroll abre un ítem a la vez (encaja en cada uno).
+ * [data-stack]: en celular la lista queda fija y el scroll abre un ítem a la vez (encaja en cada uno;
+ * cada ítem dura un 14 % de la pantalla).
  * Si con algún ítem abierto la lista no cabe en la pantalla, no se fija: queda abierta en el flujo normal.
  */
 function initStack() {
@@ -315,7 +316,7 @@ function initStack() {
       const st = ScrollTrigger.create({
         trigger: stack,
         start: 'top top+=84', // debajo del menú flotante
-        end: () => `+=${steps * window.innerHeight * 0.18}`,
+        end: () => `+=${steps * window.innerHeight * 0.14}`,
         pin: true,
         pinSpacing: true, // el padre puede ser flex: sin esto GSAP no reserva el espacio y lo siguiente se monta encima
         snap: { snapTo: 1 / steps, duration: { min: 0.15, max: 0.35 }, ease: 'power1.inOut' },
@@ -485,4 +486,7 @@ export async function initAnimations() {
   await nextFrame();
   await runChunked(revealTasks());
   ScrollTrigger.refresh();
+  // Un <details> que se abre o cierra (p. ej. el grupo de WANT en Proyectos) mueve todo lo de abajo:
+  // las posiciones de los ScrollTrigger quedan viejas si no se recalculan
+  document.querySelectorAll('details').forEach((d) => d.addEventListener('toggle', () => ScrollTrigger.refresh()));
 }
