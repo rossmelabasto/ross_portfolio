@@ -13,11 +13,11 @@ const [lead, ...rest] = profile.about[lang];
 const daysSince = (d: string) => Math.floor((Date.now() - new Date(d).getTime()) / 86_400_000);
 const stats = profile.stats.map((st) => (st.days ? { ...st, count: daysSince(profile.codingSince) } : st));
 ---
-<section id="about" class="px-5 py-32 md:px-10 md:py-48">
+<section id="about" class="px-5 py-20 md:px-10 md:py-48">
   <h2 class="kicker mb-10">{s.about.kicker}</h2>
-  <p data-words class="display max-w-6xl text-4xl font-medium md:text-7xl">{lead}</p>
-  <div class="mt-20 grid items-center gap-12 md:grid-cols-12">
-    <figure class="relative mx-auto w-full max-w-[22rem] md:col-span-4 md:mx-0 md:max-w-[26rem]">
+  <p data-words class="display max-w-6xl text-3xl font-medium md:text-7xl">{lead}</p>
+  <div class="mt-12 grid items-center gap-10 md:mt-20 md:grid-cols-12 md:gap-12">
+    <figure class="relative mx-auto w-full max-w-[18rem] md:col-span-4 md:mx-0 md:max-w-[26rem]">
       <PhotoLayers lang={lang} />
       <!-- Flecha a mano "yo" apuntando a la foto (solo desde md: en móvil no hay espacio al costado) -->
       <div class="pointer-events-none absolute -right-28 top-4 hidden w-28 text-accent md:block lg:-right-32 lg:w-32" aria-hidden="true">
@@ -31,7 +31,7 @@ const stats = profile.stats.map((st) => (st.days ? { ...st, count: daysSince(pro
       <a data-reveal href={paths.about(lang)} data-hover class="inline-flex items-center gap-2 pt-2 text-accent underline-offset-4 hover:underline">{s.about.more} →</a>
     </div>
   </div>
-  <dl class="mt-24 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+  <dl class="mt-14 grid md:mt-24 grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
     {stats.map((st) => (
       <div class="bg-bg p-6 md:p-8" data-reveal>
         <dt class="kicker">{st.label[lang]}</dt>

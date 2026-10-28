@@ -46,16 +46,15 @@ export const profile = {
   } as L,
 
   /** "Sobre mí" de la home: una frase grande y un resumen corto. La historia completa va en `story` (/sobre-mi/). */
+  /** Sobre mí de la portada (versión corta: la historia completa, con Platzi y Derecho, está en `story` → /sobre-mi). */
   about: {
     es: [
       'Empecé a programar de forma autodidacta en plena pandemia, y desde entonces no paré: cursos, documentación, prueba y error, y muchas noches de “¿por qué esto no funciona?”.',
-      'Estudiaba Derecho cuando descubrí la programación gracias a Platzi, y supe que esa era mi vocación. Aprendí con cursos y creadores de YouTube, siguiendo una sola regla: ==nunca parar de aprender==.',
       'Con una buena base de desarrollo web entré a WANT, donde pasé más de tres años construyendo ==productos reales== para clientes de Bolivia y EE. UU. Hoy trabajo de forma independiente mientras termino Ingeniería de Sistemas, y uso la IA para llegar más lejos con lo que ya sé hacer.',
       'Y vivo en Linux: probé muchas distros, pero ((Arch)) siempre fue especial. Uso a diario rOS, mi propio flavor de Arch, y tengo un homelab en casa que cuida un agente de IA.',
     ],
     en: [
       'I taught myself to code in the middle of the pandemic, and I haven\'t stopped since: courses, docs, trial and error, and many “why isn\'t this working?” nights.',
-      'I was studying law when I discovered programming through Platzi, and I knew it was my calling. I learned from courses and YouTube creators, following one rule: ==never stop learning==.',
       'With a solid web development foundation I joined WANT, where I spent 3+ years building ==real products== for clients in Bolivia and the US. Today I work independently while finishing my Systems Engineering degree, and I use AI to go further with what I already know how to do.',
       'And I live in Linux: I\'ve tried many distros, but ((Arch)) was always special. I daily-drive rOS, my own flavor of Arch, and run a homelab at home looked after by an AI agent.',
     ],
