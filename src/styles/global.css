@@ -127,6 +127,8 @@ html.lenis body {
   letter-spacing: 0;
 }
 .prose :where(a) {
+  /* las URL largas (github.com/…) se parten en vez de desbordar en celular */
+  overflow-wrap: anywhere;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -136,6 +138,7 @@ html.lenis body {
   letter-spacing: -0.02em;
 }
 .prose :where(code):not(:where(pre *)) {
+  overflow-wrap: anywhere;
   background: var(--bg-2);
   border: 1px solid var(--line);
   border-radius: 0.4em;

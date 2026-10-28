@@ -25,7 +25,7 @@ faster-whisper usa PyAV para leer el audio, y la versión de PyAV que instaló p
 
 ## ¿Hace falta un modelo más grande?
 
-Con el modelo `small`, en la CPU de mi laptop, una nota de voz de 30 segundos tarda unos 3 segundos: ==unas 10 veces más rápido que el tiempo real==. La transcripción salía bien salvo por una palabra cariñosa dicha muy rápido al principio del audio.
+Con el modelo `small`, en la CPU de mi laptop, una nota de voz de 30 segundos tarda unos 3 segundos: unas ==10 veces más rápido== que el tiempo real. La transcripción salía bien salvo por una palabra cariñosa dicha muy rápido al principio del audio.
 
 La tentación era bajar un modelo más grande. Antes de hacerlo comparé, y el modelo grande (`large-v3`, el mismo que usé en la nube) **también se equivocaba en esa palabra**. También probé darle contexto con palabras esperadas: corrigió otras dos, pero se comió el saludo del inicio. Conclusión: para notas de voz, `small` alcanza, y bajar 3 GB no iba a arreglar ese caso.
 

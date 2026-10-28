@@ -703,14 +703,14 @@ export const projects: Project[] = [
     highlights: {
       es: [
         'Selector interactivo: tus Descargas de lo más nuevo a lo más viejo, con duración y antigüedad; filtro escribiendo, selección múltiple y búsqueda en toda la máquina (carpeta personal + discos montados) con fd.',
-        'Rápido sin GPU: el modelo small de Whisper transcribe ==unas 10 veces más rápido que el tiempo real== en la CPU de una laptop; una nota de voz de 30 s tarda ~3 s.',
+        'Rápido sin GPU: el modelo small de Whisper transcribe unas ==10 veces más rápido== que el tiempo real en la CPU de una laptop; una nota de voz de 30 s tarda ~3 s.',
         'La GPU solo si de verdad funciona: antes de usarla comprueba que carguen las librerías de CUDA y, si falla a mitad de camino, sigue en la CPU sin romperse.',
         'Lee cualquier formato con ffmpeg (notas de voz, mp3, el audio de un video) y así evita un choque de versiones entre faster-whisper y PyAV.',
         'Interfaz en español o inglés según el sistema, salida en pantalla, .txt y .srt, 29 tests con un modelo falso y CI en GitHub Actions con tres versiones de Python.',
       ],
       en: [
         'Interactive picker: your Downloads newest first, with duration and age; type to filter, multi-select and search the whole machine (home folder + mounted drives) with fd.',
-        'Fast without a GPU: Whisper\'s small model transcribes ==about 10× faster than real time== on a laptop CPU; a 30-second voice note takes ~3 s.',
+        'Fast without a GPU: Whisper\'s small model transcribes about ==10× faster== than real time on a laptop CPU; a 30-second voice note takes ~3 s.',
         'GPU only when it really works: before using it, it checks that the CUDA libraries load, and if it fails mid-way it carries on with the CPU instead of crashing.',
         'Reads any format through ffmpeg (voice notes, mp3, the audio of a video), which also avoids a version clash between faster-whisper and PyAV.',
         'Spanish or English interface following the system, output to screen, .txt and .srt, 29 tests with a fake model and GitHub Actions CI on three Python versions.',

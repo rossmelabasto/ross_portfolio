@@ -549,5 +549,6 @@ Ramas:
 | 2026-10 | Formulario: campo opcional de WhatsApp/teléfono y aviso por Telegram además del correo (un mensaje llegó con un correo mal escrito que rebotó, y Gmail no avisó a tiempo). Pedido de Rossmel. |
 | 2026-10 | `/sobre-mi/` rehecha: foto solo arriba (ya no sticky), capítulos intercalados izquierda/derecha que entran desde su costado (`data-slide`), cada uno con un dibujo principal + 3 secundarios con parallax y un número grande de fondo; flechas a mano entre capítulos. Se quitó "Mi camino" (`journey`). "Fuera del código" se dividió en Cubos de Rubik / Fútbol / Música y podcasts. Pedido de Rossmel. |
 | 2026-10 | Menos proyectos destacados para acortar el scroll: Homelab, Notebook y rOS pasan a la lista normal; quedan AdvAI, CarX, SGPG y Link'u. |
+| 2026-10 | Fase 1 del plan de mejora: dibujos con 1 decimal (portada de 167 a 68 KB comprimida), `npm run verify` revisa las 83 páginas del sitemap a 1440 y 360 px (`--quick` para la muestra), URL y código largos del blog se parten, marcas largas acortadas en transcribe. |
 | 2026-09 | v3.14: dibujo por proyecto y dibujos "en vuelo" en más secciones; CV con "WANT Digital Agency" completo y más proyectos (Homelab, Notebook, Rubik, rOS). Pedido de Rossmel. |
 | 2026-09 | Fuera del sitio: watcher-backend, prototipos v0 (salvo SGPG), proyectos descartados, proyectos personales/regalos. |

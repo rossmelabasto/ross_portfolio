@@ -491,11 +491,14 @@ export const sketches = {
 export type SketchName = keyof typeof sketches;
 
 /** Trazos SVG listos para pintar. */
+/** rough.js da coordenadas con ~15 decimales; con 1 basta (viewBox de 100–400) y el HTML pesa un 60 % menos. */
+const trim = (d: string) => d.replace(/(\d+\.\d)\d+/g, '$1');
+
 export function sketchPaths(name: SketchName, seed = 1) {
   const def: SketchDef = sketches[name];
   const g = rough.generator();
   const o: Opts = { roughness: 1.1, bowing: 1.2, stroke: 'currentColor', strokeWidth: 1.4, seed, disableMultiStroke: false };
-  return { viewBox: def.viewBox, stretch: !!def.stretch, paths: def.shapes(g, o).flatMap((d) => g.toPaths(d)).map((p) => p.d) };
+  return { viewBox: def.viewBox, stretch: !!def.stretch, paths: def.shapes(g, o).flatMap((d) => g.toPaths(d)).map((p) => trim(p.d)) };
 }
 
 /** Marcas de anotación en textos: ==subrayado== y ((círculo)). */
@@ -536,7 +539,7 @@ export function trailPaths(seed = 1, variant = 0) {
   const out: string[] = [];
   for (let i = 0; i < N; i += 3) {
     const pts = [at(i / N), at((i + 1) / N), at((i + 2) / N)];
-    out.push(...g.toPaths(g.curve(pts, { ...o, seed: seed + i })).map((p) => p.d));
+    out.push(...g.toPaths(g.curve(pts, { ...o, seed: seed + i })).map((p) => trim(p.d)));
   }
   return out;
 }

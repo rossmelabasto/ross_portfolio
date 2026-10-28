@@ -8,7 +8,7 @@ Portafolio + CV de Rossmel Abasto. Idioma de trabajo: **español** (el sitio es 
 - `npm run build` — build estático a `dist/`
 - `npm run cv:pdf` — PDFs del CV (después de `build`); usa Chromium del sistema o `$CHROMIUM_PATH`
 - `npm run check` — tipos
-- `npm run verify` — tras el build: desborde móvil, marcas sin procesar, errores JS, CV ≤ 2 páginas
+- `npm run verify` — tras el build: TODAS las páginas del sitemap a 1440 y 360 px (desborde, marcas sin procesar, errores JS) y CV ≤ 2 páginas; `-- --quick` = muestra de 14 páginas
 
 Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run verify` sin errores, y si cambió contenido del CV,
 `npm run cv:pdf` y commitear los PDF de `public/cv/`.
@@ -108,6 +108,7 @@ Antes de dar algo por terminado: `npm run build`, `npm run check` y `npm run ver
 - v3.32: ficha `genogramapp` (textos de `~/code/genograma-app/docs/03-portafolio.md`): proyecto a medida para una estudiante de Psicología, **sin nombrarla**, sin enlace a su web ni al repo (`confidential: true`), dibujo `genogram`, acento `#ffb6d5`, `featured`/`cv` en false. Capturas (familias inventadas) en el repo de la app (`docs/portafolio/`), para usar en los artículos.
 - v3.33: tres artículos de GenogramApp (`genograma-que-se-dibuja-solo`, `ia-que-no-inventa-familias`, `boton-atras-de-android-en-capacitor` + EN), con capturas de `docs/portafolio/` del proyecto (solo familias inventadas) en `public/blog/genogramapp/`. Marcas ==…==/((…)) cortas (2–4 palabras): son `whitespace-nowrap` y una frase larga desborda en móvil (`npm run verify` no revisa todos los artículos).
 - v3.34: destacados solo `advai`, `carx`, `sgpg` y `agua-potable`; `homelab`, `notebook` y `ros` con `featured: false` (pedido de Rossmel: el scroll se hacía largo).
+- v3.35: `sketchPaths`/`trailPaths` recortan las coordenadas de rough.js a 1 decimal (`trim` en sketches.ts; −60 % de HTML en la portada). verify recorre todo el sitemap. `.prose a` y el código en línea usan `overflow-wrap: anywhere`. Regla: marcas ==…==/((…)) de 2–4 palabras, también en profile.ts (una larga en un `grid` ensancha toda la columna en celular).
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.

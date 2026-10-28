@@ -1,23 +1,26 @@
 /**
  * Verificación rápida del sitio construido (correr después de `npm run build`):
- *   npm run verify            → revisa desborde horizontal, marcas ==…== / ((…)) sin procesar,
- *                               errores de JS y que el CV quepa en 2 páginas
+ *   npm run verify            → revisa TODAS las páginas del sitemap (+ 404) a 1440 y 360 px:
+ *                               desborde horizontal, marcas ==…== / ((…)) sin procesar, errores
+ *                               de JS y que el CV quepa en 2 páginas
+ *   npm run verify -- --quick → solo una muestra de 14 páginas (más rápido)
  *   npm run verify -- --shots → además guarda capturas en shots/ (ignorado por git)
  * Usa Chromium del sistema o $CHROMIUM_PATH (igual que cv:pdf).
  */
-import { existsSync, mkdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { chromium } from 'playwright-core';
 import { serveDist } from './serve-dist.mjs';
 
 const PORT = 4399;
 const shots = process.argv.includes('--shots');
-const PAGES = [
+const quick = process.argv.includes('--quick');
+const SAMPLE = [
   '/', '/en/', '/sobre-mi/', '/en/about/', '/blog/', '/en/blog/',
   '/blog/llm-sin-citas-inventadas/', '/en/blog/stopping-an-llm-from-inventing-legal-citations/',
   '/proyectos/advai/', '/proyectos/rubik/', '/en/projects/selflix/', '/cv/', '/en/cv/', '/404.html',
 ];
-const VIEWPORTS = [{ width: 1440, height: 900 }, { width: 390, height: 800 }];
+const VIEWPORTS = [{ width: 1440, height: 900 }, { width: 360, height: 800 }];
 
 function findChromium() {
   if (process.env.CHROMIUM_PATH) return process.env.CHROMIUM_PATH;
@@ -29,6 +32,10 @@ function findChromium() {
 
 if (!existsSync('dist/index.html')) throw new Error('Falta dist/: corre `npm run build` antes');
 if (shots) mkdirSync('shots', { recursive: true });
+// Todas las páginas publicadas: las del sitemap (sin dominio) más la 404
+const PAGES = quick
+  ? SAMPLE
+  : [...readFileSync('dist/sitemap-0.xml', 'utf8').matchAll(/<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g)].map((m) => m[1]).concat('/404.html');
 
 const server = await serveDist(PORT);
 const browser = await chromium.launch({ executablePath: findChromium() });
