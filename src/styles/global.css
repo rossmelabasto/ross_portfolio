@@ -10,16 +10,16 @@
    Cambia aquí colores y tipografías; todo el sitio los usa.
 ---------------------------------------------------------------- */
 :root {
-  --bg: #0a0a0b;
+  --bg: #0a0a0a;
   --bg-2: #121214;
   --fg: #ededea;
   --muted: #8a8a86;
   --line: rgb(237 237 234 / 0.12);
-  --accent: #c8ff2e;
-  --accent-ink: #0a0a0b;
+  --accent: #afff00;
+  --accent-ink: #0a0a0a;
   /* Selección de texto: siempre el acento del TEMA (las páginas de proyecto redefinen --accent) */
-  --selection: #c8ff2e;
-  --selection-ink: #0a0a0b;
+  --selection: #afff00;
+  --selection-ink: #0a0a0a;
   color-scheme: dark;
 }
 
@@ -29,9 +29,9 @@
   --fg: #111112;
   --muted: #5d5d59;
   --line: rgb(17 17 18 / 0.18);
-  --accent: #5b3dff;
+  --accent: #8002fe;
   --accent-ink: #f4f3ef;
-  --selection: #5b3dff;
+  --selection: #8002fe;
   --selection-ink: #f4f3ef;
   color-scheme: light;
 }

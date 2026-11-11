@@ -30,18 +30,18 @@ const html = `<!doctype html><html><head><style>
 @font-face { font-family: SG; src: url(${font('@fontsource-variable/space-grotesk', 'space-grotesk-latin-wght-normal.woff2')}); font-weight: 300 700; }
 @font-face { font-family: JB; src: url(${font('@fontsource/jetbrains-mono', 'jetbrains-mono-latin-400-normal.woff2')}); }
 * { margin: 0; box-sizing: border-box; }
-body { width: 1200px; height: 630px; background: #0a0a0b; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
+body { width: 1200px; height: 630px; background: #0a0a0a; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
 .glow { position: absolute; inset: 0; background:
-  radial-gradient(60% 80% at 85% 10%, rgba(200,255,46,.35), transparent 60%),
-  radial-gradient(50% 60% at 100% 100%, rgba(200,255,46,.12), transparent 70%); }
+  radial-gradient(60% 80% at 85% 10%, rgba(175,255,0,.35), transparent 60%),
+  radial-gradient(50% 60% at 100% 100%, rgba(175,255,0,.12), transparent 70%); }
 .wrap { position: absolute; inset: 64px; display: flex; flex-direction: column; justify-content: space-between; }
 .k { font-family: JB; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: #8a8a86; display: flex; align-items: center; gap: 14px; }
-.dot { width: 14px; height: 14px; border-radius: 50%; background: #c8ff2e; }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: #afff00; }
 h1 { font-size: 150px; line-height: .88; letter-spacing: -.045em; font-weight: 700; text-transform: uppercase; }
 .row { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(237,237,234,.15); padding-top: 24px; }
-.role { font-size: 34px; } .role b { color: #c8ff2e; font-weight: 600; }
+.role { font-size: 34px; } .role b { color: #afff00; font-weight: 600; }
 .url { font-family: JB; font-size: 22px; color: #8a8a86; }
-.logo { position: absolute; top: 64px; right: 64px; width: 150px; height: 150px; color: #c8ff2e; }
+.logo { position: absolute; top: 64px; right: 64px; width: 150px; height: 150px; color: #afff00; }
 </style></head><body><div class="glow"></div>${readFileSync('src/assets/logo.svg', 'utf8').replace('<svg ', '<svg class="logo" ')}<div class="wrap">
 <div class="k"><span class="dot"></span>Portfolio · Cochabamba, Bolivia</div>
 <h1>Rossmel<br>Abasto</h1>
@@ -61,7 +61,7 @@ const pageHtml = (d) => `<!doctype html><html><head><style>
 @font-face { font-family: SG; src: url(${font('@fontsource-variable/space-grotesk', 'space-grotesk-latin-wght-normal.woff2')}); font-weight: 300 700; }
 @font-face { font-family: JB; src: url(${font('@fontsource/jetbrains-mono', 'jetbrains-mono-latin-400-normal.woff2')}); }
 * { margin: 0; box-sizing: border-box; }
-body { width: 1200px; height: 630px; background: #0a0a0b; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
+body { width: 1200px; height: 630px; background: #0a0a0a; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
 .glow { position: absolute; inset: 0; background:
   radial-gradient(60% 80% at 85% 10%, color-mix(in oklab, ${d.accent} 40%, transparent), transparent 60%),
   radial-gradient(50% 60% at 100% 100%, color-mix(in oklab, ${d.accent} 14%, transparent), transparent 70%); }
@@ -71,7 +71,7 @@ body { width: 1200px; height: 630px; background: #0a0a0b; color: #ededea; font-f
 h1 { font-weight: 700; letter-spacing: -.04em; line-height: .95; max-width: 780px; }
 .sub { margin-top: 22px; font-size: 30px; line-height: 1.25; color: #b9b9b4; max-width: 760px; }
 .row { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(237,237,234,.15); padding-top: 24px; }
-.who { font-size: 30px; display: flex; align-items: center; gap: 14px; } .who svg { width: 40px; height: 40px; color: #c8ff2e; }
+.who { font-size: 30px; display: flex; align-items: center; gap: 14px; } .who svg { width: 40px; height: 40px; color: #afff00; }
 .url { font-family: JB; font-size: 22px; color: #8a8a86; }
 .doodle { position: absolute; right: 70px; top: 110px; width: 300px; height: 300px; color: ${d.accent}; transform: rotate(-6deg); }
 </style></head><body><div class="glow"></div>

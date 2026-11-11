@@ -6,10 +6,10 @@
 </a>
 
 <p align="center">
-  <a href="https://portfolio.rossmel.com"><img src="https://img.shields.io/badge/portfolio-rossmel.com-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Portafolio" /></a>
-  <a href="https://cv.rossmel.com"><img src="https://img.shields.io/badge/cv-descargar-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="CV" /></a>
-  <a href="https://portfolio.rossmel.com/blog/"><img src="https://img.shields.io/badge/blog-leer-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="Blog" /></a>
-  <a href="https://www.linkedin.com/in/rossmel/"><img src="https://img.shields.io/badge/linkedin-in%2Frossmel-c8ff2e?style=for-the-badge&labelColor=0a0a0b" alt="LinkedIn" /></a>
+  <a href="https://portfolio.rossmel.com"><img src="https://img.shields.io/badge/portfolio-rossmel.com-afff00?style=for-the-badge&labelColor=0a0a0a" alt="Portafolio" /></a>
+  <a href="https://cv.rossmel.com"><img src="https://img.shields.io/badge/cv-descargar-afff00?style=for-the-badge&labelColor=0a0a0a" alt="CV" /></a>
+  <a href="https://portfolio.rossmel.com/blog/"><img src="https://img.shields.io/badge/blog-leer-afff00?style=for-the-badge&labelColor=0a0a0a" alt="Blog" /></a>
+  <a href="https://www.linkedin.com/in/rossmel/"><img src="https://img.shields.io/badge/linkedin-in%2Frossmel-afff00?style=for-the-badge&labelColor=0a0a0a" alt="LinkedIn" /></a>
 </p>
 
 ```ts

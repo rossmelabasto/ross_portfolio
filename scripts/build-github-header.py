@@ -13,7 +13,7 @@ SG = f'{NM}/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-no
 JB = f'{NM}/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2'
 OUT = 'docs/github-profile/assets/header.svg'
 
-LIME, BG, FG, MUTED = '#c8ff2e', '#0a0a0b', '#ededea', '#8a8a86'
+LIME, BG, FG, MUTED = '#afff00', '#0a0a0a', '#ededea', '#8a8a86'
 W, H = 1200, 440
 CYCLE = 14.0  # segundos por vuelta de la animación
 

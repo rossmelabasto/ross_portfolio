@@ -114,8 +114,8 @@ export function mountShader(canvas: HTMLCanvasElement): boolean {
 
   const readColors = () => {
     const cs = getComputedStyle(document.documentElement);
-    gl.uniform3fv(uAccent, hexToRgb(cs.getPropertyValue('--accent') || '#c8ff2e'));
-    gl.uniform3fv(uBg, hexToRgb(cs.getPropertyValue('--bg') || '#0a0a0b'));
+    gl.uniform3fv(uAccent, hexToRgb(cs.getPropertyValue('--accent') || '#afff00'));
+    gl.uniform3fv(uBg, hexToRgb(cs.getPropertyValue('--bg') || '#0a0a0a'));
   };
   readColors();
   new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
