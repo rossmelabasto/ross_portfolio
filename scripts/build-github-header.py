@@ -5,15 +5,17 @@ se vea igual en cualquier navegador sin depender de servicios externos.
 Uso: python3 scripts/build-github-header.py   (requiere: pip install fonttools brotli)
 """
 import base64, io, html
+import os
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
 NM = 'node_modules'
-SG = f'{NM}/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2'
-JB = f'{NM}/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2'
+BRAND = os.environ.get('ROSS_BRAND', os.path.expanduser('~/.local/share/ross/brand'))  # fuentes de ross_brand
+SG = f'{BRAND}/fuentes/chakra-petch-latin-700-normal.woff2'
+JB = f'{BRAND}/fuentes/jetbrains-mono-latin-wght-normal.woff2'
 OUT = 'docs/github-profile/assets/header.svg'
 
-LIME, BG, FG, MUTED = '#afff00', '#0a0a0a', '#ededea', '#8a8a86'
+LIME, BG, FG, MUTED = '#afff00', '#0a0a0a', '#ebebeb', '#929292'
 W, H = 1200, 440
 CYCLE = 14.0  # segundos por vuelta de la animación
 
@@ -45,7 +47,7 @@ def font_b64(path, text, variable_wght=None):
 
 mono_text = PROMPT + ''.join(t for _, t in LINES) + ROLE + '[] ok✓█portfolio.rossmel.com'
 sg = font_b64(SG, ''.join(NAME) + ROLE, variable_wght=700)
-jb = font_b64(JB, mono_text)
+jb = font_b64(JB, mono_text, variable_wght=400)
 
 # --- terminal: cada línea aparece en orden (clip que crece = efecto de escritura) ---
 tx, ty, tw = 600, 140, 560

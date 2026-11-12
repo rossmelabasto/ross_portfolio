@@ -7,8 +7,8 @@ import { stripMarks } from '../data/sketches';
 import ToTop from '../components/ToTop.astro';
 import { getImage } from 'astro:assets';
 import photo from '../assets/rossmel.jpg';
-import fontDisplay from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
-import fontText from '@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url';
+// Marca (colores y fuentes) servida desde brand.rossmel.com: se cambia en ross_brand/marca.json
+const BRAND = 'https://brand.rossmel.com';
 
 interface Props {
   lang: Lang;
@@ -75,8 +75,11 @@ const ogImage = new URL(ogImagePath(Astro.url.pathname), Astro.site);
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonical} />
-    <link rel="preload" href={fontDisplay} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={fontText} as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href={BRAND} crossorigin />
+    <link rel="preload" href={`${BRAND}/fuentes/chakra-petch-latin-700-normal.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={`${BRAND}/fuentes/jetbrains-mono-latin-wght-normal.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={`${BRAND}/fuentes.css`} />
+    <link rel="stylesheet" href={`${BRAND}/marca.css`} />
     {!noAlt && <link rel="alternate" hreflang={lang} href={canonical} />}
     {!noAlt && <link rel="alternate" hreflang={lang === 'es' ? 'en' : 'es'} href={alt} />}
     {!noAlt && <link rel="alternate" hreflang="x-default" href={lang === 'es' ? canonical : alt} />}

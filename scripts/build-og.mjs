@@ -25,22 +25,26 @@ function findChromium() {
 }
 
 // Fuentes incrustadas en base64 (setContent no puede leer file://).
-const font = (pkg, file) => `data:font/woff2;base64,${readFileSync(`node_modules/${pkg}/files/${file}`).toString('base64')}`;
+// Fuentes de la marca (ross_brand, ruta global de rOS; se puede cambiar con ROSS_BRAND)
+const BRAND = process.env.ROSS_BRAND || `${process.env.HOME}/.local/share/ross/brand`;
+const font = (file) => `data:font/woff2;base64,${readFileSync(`${BRAND}/fuentes/${file}`).toString('base64')}`;
 const html = `<!doctype html><html><head><style>
-@font-face { font-family: SG; src: url(${font('@fontsource-variable/space-grotesk', 'space-grotesk-latin-wght-normal.woff2')}); font-weight: 300 700; }
-@font-face { font-family: JB; src: url(${font('@fontsource/jetbrains-mono', 'jetbrains-mono-latin-400-normal.woff2')}); }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-400-normal.woff2')}); font-weight: 400; }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-600-normal.woff2')}); font-weight: 600; }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-700-normal.woff2')}); font-weight: 700; }
+@font-face { font-family: JB; src: url(${font('jetbrains-mono-latin-wght-normal.woff2')}); font-weight: 100 800; }
 * { margin: 0; box-sizing: border-box; }
-body { width: 1200px; height: 630px; background: #0a0a0a; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
+body { width: 1200px; height: 630px; background: #0a0a0a; color: #ebebeb; font-family: SG; position: relative; overflow: hidden; }
 .glow { position: absolute; inset: 0; background:
   radial-gradient(60% 80% at 85% 10%, rgba(175,255,0,.35), transparent 60%),
   radial-gradient(50% 60% at 100% 100%, rgba(175,255,0,.12), transparent 70%); }
 .wrap { position: absolute; inset: 64px; display: flex; flex-direction: column; justify-content: space-between; }
-.k { font-family: JB; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: #8a8a86; display: flex; align-items: center; gap: 14px; }
+.k { font-family: JB; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: #929292; display: flex; align-items: center; gap: 14px; }
 .dot { width: 14px; height: 14px; border-radius: 50%; background: #afff00; }
 h1 { font-size: 150px; line-height: .88; letter-spacing: -.045em; font-weight: 700; text-transform: uppercase; }
 .row { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(237,237,234,.15); padding-top: 24px; }
 .role { font-size: 34px; } .role b { color: #afff00; font-weight: 600; }
-.url { font-family: JB; font-size: 22px; color: #8a8a86; }
+.url { font-family: JB; font-size: 22px; color: #929292; }
 .logo { position: absolute; top: 64px; right: 64px; width: 150px; height: 150px; color: #afff00; }
 </style></head><body><div class="glow"></div>${readFileSync('src/assets/logo.svg', 'utf8').replace('<svg ', '<svg class="logo" ')}<div class="wrap">
 <div class="k"><span class="dot"></span>Portfolio · Cochabamba, Bolivia</div>
@@ -58,21 +62,23 @@ console.log('✓ public/og.png');
 // ---------- Una imagen por proyecto y por artículo ----------
 const esc = (x) => String(x).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const pageHtml = (d) => `<!doctype html><html><head><style>
-@font-face { font-family: SG; src: url(${font('@fontsource-variable/space-grotesk', 'space-grotesk-latin-wght-normal.woff2')}); font-weight: 300 700; }
-@font-face { font-family: JB; src: url(${font('@fontsource/jetbrains-mono', 'jetbrains-mono-latin-400-normal.woff2')}); }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-400-normal.woff2')}); font-weight: 400; }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-600-normal.woff2')}); font-weight: 600; }
+@font-face { font-family: SG; src: url(${font('chakra-petch-latin-700-normal.woff2')}); font-weight: 700; }
+@font-face { font-family: JB; src: url(${font('jetbrains-mono-latin-wght-normal.woff2')}); font-weight: 100 800; }
 * { margin: 0; box-sizing: border-box; }
-body { width: 1200px; height: 630px; background: #0a0a0a; color: #ededea; font-family: SG; position: relative; overflow: hidden; }
+body { width: 1200px; height: 630px; background: #0a0a0a; color: #ebebeb; font-family: SG; position: relative; overflow: hidden; }
 .glow { position: absolute; inset: 0; background:
   radial-gradient(60% 80% at 85% 10%, color-mix(in oklab, ${d.accent} 40%, transparent), transparent 60%),
   radial-gradient(50% 60% at 100% 100%, color-mix(in oklab, ${d.accent} 14%, transparent), transparent 70%); }
 .wrap { position: absolute; inset: 64px; display: flex; flex-direction: column; justify-content: space-between; }
-.k { font-family: JB; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: #8a8a86; display: flex; align-items: center; gap: 14px; max-width: 760px; }
+.k { font-family: JB; font-size: 22px; letter-spacing: .08em; text-transform: uppercase; color: #929292; display: flex; align-items: center; gap: 14px; max-width: 760px; }
 .dot { width: 14px; height: 14px; border-radius: 50%; background: ${d.accent}; flex: none; }
 h1 { font-weight: 700; letter-spacing: -.04em; line-height: .95; max-width: 780px; }
 .sub { margin-top: 22px; font-size: 30px; line-height: 1.25; color: #b9b9b4; max-width: 760px; }
 .row { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(237,237,234,.15); padding-top: 24px; }
 .who { font-size: 30px; display: flex; align-items: center; gap: 14px; } .who svg { width: 40px; height: 40px; color: #afff00; }
-.url { font-family: JB; font-size: 22px; color: #8a8a86; }
+.url { font-family: JB; font-size: 22px; color: #929292; }
 .doodle { position: absolute; right: 70px; top: 110px; width: 300px; height: 300px; color: ${d.accent}; transform: rotate(-6deg); }
 </style></head><body><div class="glow"></div>
 ${d.doodle ? `<svg class="doodle" viewBox="${d.doodle.viewBox}" fill="none">${d.doodle.paths.map((p) => `<path d="${p}" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`).join('')}</svg>` : ''}

@@ -1,46 +1,46 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/space-grotesk';
-@import '@fontsource-variable/jetbrains-mono';
-@import '@fontsource/caveat/latin-400.css';
 
 /* ---------------------------------------------------------------
-   TOKENS DE DISEÑO
-   Cambia aquí colores y tipografías; todo el sitio los usa.
+   MARCA: los colores y las fuentes vienen de https://brand.rossmel.com
+   (marca.css y fuentes.css, cargados en Base.astro). Se cambian en
+   ross_brand/marca.json, no aquí. Estos valores son solo el RESPALDO por
+   si brand.rossmel.com no carga: van en una capa (@layer), así que
+   cualquier valor de marca.css (sin capa) les gana siempre.
 ---------------------------------------------------------------- */
-:root {
-  --bg: #0a0a0a;
-  --bg-2: #121214;
-  --fg: #ededea;
-  --muted: #8a8a86;
-  --line: rgb(237 237 234 / 0.12);
-  --accent: #afff00;
-  --accent-ink: #0a0a0a;
-  /* Selección de texto: siempre el acento del TEMA (las páginas de proyecto redefinen --accent) */
-  --selection: #afff00;
-  --selection-ink: #0a0a0a;
-  color-scheme: dark;
-}
-
-:root[data-theme='light'] {
-  --bg: #f4f3ef;
-  --bg-2: #e9e8e3;
-  --fg: #111112;
-  --muted: #5d5d59;
-  --line: rgb(17 17 18 / 0.18);
-  --accent: #8002fe;
-  --accent-ink: #f4f3ef;
-  --selection: #8002fe;
-  --selection-ink: #f4f3ef;
-  color-scheme: light;
+@layer respaldo {
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #171717;
+    --fg: #ebebeb;
+    --muted: #929292;
+    --line: #2e2e2e;
+    --accent: #afff00;
+    --accent-ink: #0a0a0a;
+    --selection: #afff00;
+    --selection-ink: #0a0a0a;
+    color-scheme: dark;
+  }
+  :root[data-theme='light'] {
+    --bg: #f3f3f3;
+    --bg-2: #e8e8e8;
+    --fg: #121212;
+    --muted: #636363;
+    --line: #d1d1d1;
+    --accent: #8002fe;
+    --accent-ink: #ffffff;
+    --selection: #8002fe;
+    --selection-ink: #ffffff;
+    color-scheme: light;
+  }
 }
 
 @theme {
-  --font-sans: 'JetBrains Mono Variable', ui-monospace, monospace;
-  --font-reading: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Space Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  /* --font-display/--font-mono/--font-hand también los define marca.css (gana); estos son el respaldo */
+  --font-sans: var(--font-mono);
+  --font-reading: var(--font-body, 'Inter', ui-sans-serif, system-ui, sans-serif);
+  --font-display: 'Chakra Petch', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-hand: 'Caveat', 'Comic Sans MS', cursive; /* solo etiquetas a mano ("yo") */
   --color-bg: var(--bg);
   --color-bg-2: var(--bg-2);
