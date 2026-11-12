@@ -322,7 +322,7 @@ export const projects: Project[] = [
     },
     stack: ['Next.js 16', 'React 19', 'TypeScript', 'Python', 'FastAPI', 'SQLite FTS5', 'Ollama', 'RAG', 'SSE', 'pytest'],
     doodle: 'scales',
-    accent: '#c8ff2e',
+    accent: '#afff00',
     featured: true,
     cv: true,
     confidential: true,

@@ -7,7 +7,7 @@ import { sketchPaths, stripMarks } from '../data/sketches';
  * Datos para las imágenes de compartir por página (proyectos y artículos). Lo lee
  * `scripts/build-og.mjs` desde dist/ después del build; no lo usa el sitio.
  */
-const DEFAULT_ACCENT = '#c8ff2e';
+const DEFAULT_ACCENT = '#afff00';
 
 export async function GET() {
   const pages = [];

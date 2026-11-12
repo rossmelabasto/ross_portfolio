@@ -11,14 +11,14 @@
   </style>
   <defs>
     <radialGradient id="g" cx="1000" cy="60" r="520" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#c8ff2e" stop-opacity=".32"/><stop offset="1" stop-color="#c8ff2e" stop-opacity="0"/>
+      <stop offset="0" stop-color="#afff00" stop-opacity=".32"/><stop offset="1" stop-color="#afff00" stop-opacity="0"/>
     </radialGradient>
   </defs>
-  <rect width="1200" height="440" rx="28" fill="#0a0a0b"/>
+  <rect width="1200" height="440" rx="28" fill="#0a0a0a"/>
   <rect class="glow" width="1200" height="440" rx="28" fill="url(#g)"/>
   <rect x=".5" y=".5" width="1199" height="439" rx="28" fill="none" stroke="#ededea" stroke-opacity=".12"/>
 
-  <g transform="translate(56 52) scale(.0556)" fill="#c8ff2e" fill-rule="evenodd"><path d="M40 1040 520 80v520H360v440h-60V640L100 1040ZM460 320v220H350Z"/><path d="M560 80l260 520H560ZM620 320v220h110Z"/><path d="M560 640h280l30 60H620v100h300l120 240H560v-60h390l-60-120H560Z"/></g>
+  <g transform="translate(56 52) scale(.0556)" fill="#afff00" fill-rule="evenodd"><path d="M40 1040 520 80v520H360v440h-60V640L100 1040ZM460 320v220H350Z"/><path d="M560 80l260 520H560ZM620 320v220h110Z"/><path d="M560 640h280l30 60H620v100h300l120 240H560v-60h390l-60-120H560Z"/></g>
   <text x="56" y="232" class="d" font-size="96" fill="#ededea" letter-spacing="-3">ROSSMEL</text>
   <text x="56" y="318" class="d" font-size="96" fill="#ededea" letter-spacing="-3">ABASTO</text>
   <text x="58" y="380" class="m" fill="#8a8a86" font-size="18">Frontend → Fullstack · IA · Linux</text>
@@ -34,7 +34,7 @@
         keyTimes="0;0.0571;0.0572;0.0829;0.94;1"
         values="0;0;153.0;218.2;218.2;0"/>
     </rect></clipPath>
-    <text x="624" y="198" clip-path="url(#c0)" class="m"><tspan fill="#c8ff2e">rossmel@rOS:~$</tspan> <tspan fill="#ededea">whoami</tspan></text>
+    <text x="624" y="198" clip-path="url(#c0)" class="m"><tspan fill="#afff00">rossmel@rOS:~$</tspan> <tspan fill="#ededea">whoami</tspan></text>
     <clipPath id="c1"><rect x="624" y="206" height="30" width="0">
       <animate attributeName="width" dur="14.0s" repeatCount="indefinite" calcMode="linear"
         keyTimes="0;0.1221;0.1222;0.1229;0.94;1"
@@ -46,7 +46,7 @@
         keyTimes="0;0.1400;0.1401;0.1957;0.94;1"
         values="0;0;153.0;289.6;289.6;0"/>
     </rect></clipPath>
-    <text x="624" y="258" clip-path="url(#c2)" class="m"><tspan fill="#c8ff2e">rossmel@rOS:~$</tspan> <tspan fill="#ededea">cat stack.txt</tspan></text>
+    <text x="624" y="258" clip-path="url(#c2)" class="m"><tspan fill="#afff00">rossmel@rOS:~$</tspan> <tspan fill="#ededea">cat stack.txt</tspan></text>
     <clipPath id="c3"><rect x="624" y="266" height="30" width="0">
       <animate attributeName="width" dur="14.0s" repeatCount="indefinite" calcMode="linear"
         keyTimes="0;0.2350;0.2351;0.2357;0.94;1"
@@ -58,19 +58,19 @@
         keyTimes="0;0.2529;0.2530;0.3129;0.94;1"
         values="0;0;153.0;299.8;299.8;0"/>
     </rect></clipPath>
-    <text x="624" y="318" clip-path="url(#c4)" class="m"><tspan fill="#c8ff2e">rossmel@rOS:~$</tspan> <tspan fill="#ededea">./status --now</tspan></text>
+    <text x="624" y="318" clip-path="url(#c4)" class="m"><tspan fill="#afff00">rossmel@rOS:~$</tspan> <tspan fill="#ededea">./status --now</tspan></text>
     <clipPath id="c5"><rect x="624" y="326" height="30" width="0">
       <animate attributeName="width" dur="14.0s" repeatCount="indefinite" calcMode="linear"
         keyTimes="0;0.3521;0.3522;0.3529;0.94;1"
         values="0;0;428.4;432.4;432.4;0"/>
     </rect></clipPath>
-    <text x="624" y="348" clip-path="url(#c5)" class="m"><tspan fill="#8a8a86">[</tspan><tspan fill="#c8ff2e"> ok </tspan><tspan fill="#8a8a86">]</tspan> <tspan fill="#ededea">último semestre de ing. de sistemas</tspan></text>
+    <text x="624" y="348" clip-path="url(#c5)" class="m"><tspan fill="#8a8a86">[</tspan><tspan fill="#afff00"> ok </tspan><tspan fill="#8a8a86">]</tspan> <tspan fill="#ededea">último semestre de ing. de sistemas</tspan></text>
     <clipPath id="c6"><rect x="624" y="356" height="30" width="0">
       <animate attributeName="width" dur="14.0s" repeatCount="indefinite" calcMode="linear"
         keyTimes="0;0.3700;0.3701;0.3707;0.94;1"
         values="0;0;397.8;401.8;401.8;0"/>
     </rect></clipPath>
-    <text x="624" y="378" clip-path="url(#c6)" class="m"><tspan fill="#8a8a86">[</tspan><tspan fill="#c8ff2e"> ok </tspan><tspan fill="#8a8a86">]</tspan> <tspan fill="#ededea">disponible para nuevos proyectos</tspan></text>
-    <rect class="caret" x="624" y="392" width="10" height="20" fill="#c8ff2e"/>
+    <text x="624" y="378" clip-path="url(#c6)" class="m"><tspan fill="#8a8a86">[</tspan><tspan fill="#afff00"> ok </tspan><tspan fill="#8a8a86">]</tspan> <tspan fill="#ededea">disponible para nuevos proyectos</tspan></text>
+    <rect class="caret" x="624" y="392" width="10" height="20" fill="#afff00"/>
   </g>
 </svg>
