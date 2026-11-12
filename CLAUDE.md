@@ -27,8 +27,8 @@ Si se agregó un proyecto o un artículo (o cambió su título): `npm run build 
   `prefers-reduced-motion`. Nuevos efectos → añadirlos allí y documentarlos en README.
 - El CV (`Resume.astro`) debe seguir siendo ATS-friendly: una columna, sin tablas/íconos/imágenes,
   encabezados estándar, fuente estándar.
-- Estilo: tokens de color en `src/styles/global.css` (`--bg`, `--fg`, `--accent`…) → clases
-  Tailwind `bg-bg`, `text-fg`, `text-accent`, etc.
+- Estilo: los tokens (`--bg`, `--fg`, `--accent`…) los define brand.rossmel.com/marca.css (fuente: `ross_brand/marca.json`) → clases
+  Tailwind `bg-bg`, `text-fg`, `text-accent`, etc. En `global.css` solo hay respaldo.
 - Mantener README.md al día (sección "Estado actual y pendientes" e "Historial de decisiones").
 - Artículos nuevos del blog: escribir las dos versiones (ES en `src/content/blog/`, EN en `src/content/blog/en/` con `translationOf`).
 
@@ -117,6 +117,7 @@ Si se agregó un proyecto o un artículo (o cambió su título): `npm run build 
 - v3.38: campo `gallery` en proyectos (`src` puede ser `{ es, en }`; `w`/`h` reales) → tira "Capturas" en la ficha, después del hero. Hoy: notebook, rubik (captura del sitio en vivo en `public/img/projects/rubik/`), transcribe (GIF por idioma) y genogramapp; las de blog se reutilizan. Imágenes para compartir por página: `src/pages/og-pages.json.ts` (datos) + `scripts/build-og.mjs` → `public/og/<ruta>.jpg` (se commitean, como los PDF del CV); `src/lib/og.ts` (`ogImagePath`) elige la propia o `/og.png` en el build (Base.astro y JSON-LD de BlogPost).
 - v3.39: JSON-LD en cada ficha (`CreativeWork` con imagen propia, año, stack como keywords, `sameAs` al sitio en vivo + `BreadcrumbList`). El CSS sigue incrustado (`inlineStylesheets: 'always'`, decisión de v3.7 por el LCP): se evaluó pasarlo a archivo y no vale la pena.
 - v3.40: colores de marca de la biblia `~/code/ross_brand`: lima `#afff00` (oscuro), morado `#8002fe` (claro), fondo `#0a0a0a`. Antes de cambiar colores de marca, mirar `ross_brand`. Los acentos propios de cada ficha (manga, transcribe, genogramapp…) no son de marca y se quedan.
+- v3.41: colores y fuentes vienen de **https://brand.rossmel.com** (`marca.css` + `fuentes.css`, `<link>` en Base.astro con preconnect y preload de Chakra Petch 700 y JetBrains Mono). Se cambian en `ross_brand/marca.json` + `./publicar.sh`, NO aquí. `global.css` solo guarda un respaldo en `@layer respaldo` (cualquier valor de marca.css, sin capa, le gana). Títulos en **Chakra Petch** (antes Space Grotesk); sin paquetes @fontsource. `build-og.mjs` y `build-github-header.py` toman las fuentes de `~/.local/share/ross/brand/fuentes/` (o `$ROSS_BRAND`); el header necesita `fonttools` + `brotli` (venv).
 - Siguiente: capturas y video de AdvAI (Rossmel); GitHub/LinkedIn (docs/).
 - Analítica: inyección automática de Cloudflare, sin token.
 - Preguntas abiertas para Rossmel y decisiones por proyecto: `docs/PROYECTOS-CANDIDATOS.md`.
